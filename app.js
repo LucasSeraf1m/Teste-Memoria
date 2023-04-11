@@ -17,7 +17,6 @@ app.use(express.json()); // parsear o body do request como JSON
 app.use(express.urlencoded({ extended: false })); // parsear o body do request como query string
 app.use(cookieParser()); // parsear os cookies
 
-
 // adicionando rotas
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
@@ -26,3 +25,14 @@ app.use("/auth", authRouter);
 app.listen(PORT, function () {
   console.log(`🚀 Listening on port ${PORT}`);
 });
+
+const mongoose = require('mongoose');
+
+mongoose
+  .connect(process.env.MONGO_URI, { // conectar com o banco de dados
+    useNewUrlParser: "true", // string de conexão
+    useUnifiedTopology: true, // objeto que contém opções usadas para configurar a conexão 
+  })
+  .then(() => {
+    console.log("Sucesso na conexão com MongoDB!");
+  });
