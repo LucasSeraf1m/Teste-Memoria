@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const schemaUsuario = new Schema({ // definindo o schema do usuário
+const schemaUsuario = new Schema({ // define o schema do usuario
     email: {
         type: String,
         required: true,
@@ -19,4 +19,4 @@ const schemaUsuario = new Schema({ // definindo o schema do usuário
     },
 });
 
-module.exports = model("Usuario", schemaUsuario); // exportando o modelo do usuário
+module.exports = model("Usuario", schemaUsuario); // exporta o modelo do usuario

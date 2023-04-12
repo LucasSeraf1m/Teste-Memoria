@@ -1,5 +1,5 @@
 var express = require("express");
-var router = express.Router(); // criando o router
+var router = express.Router(); // cria o router
 
 // GET pagina home 
 router.get("/", function (req, res) {

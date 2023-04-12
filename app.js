@@ -29,7 +29,7 @@ app.listen(PORT, function () {
 const mongoose = require('mongoose');
 
 mongoose
-  .connect(process.env.MONGO_URI, { // conectar com o banco de dados
+  .connect(process.env.MONGO_URI, { // conecta com o banco de dados
     useNewUrlParser: "true", // string de conexão
     useUnifiedTopology: true, // objeto que contém opções usadas para configurar a conexão 
   })
