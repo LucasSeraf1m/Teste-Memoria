@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const { hash, compare } = require("bcryptjs");
+const { verify } = require("jsonwebtoken") 
 
 const Usuario = require("./usuario"); // importando o modelo do usuario
 const{
@@ -79,12 +80,96 @@ router.post("/signin", async (req, res) => {
         usuario.refreshtoken = refreshToken;
         await usuario.save();
 
+        // 5. envia a resposta
         enviarRefreshToken(res, refreshToken);
         enviarAcessToken(req, res, accessToken);
     } catch(error){
         res.status(500).json({
             type: "error",
             message: "Erro ao fazer sign in",
+            error,
+        });
+    }
+});
+
+// requisição de sign out
+router.post("/logout", (_req, res) => {
+    //limpa cookies
+    res.clearCookie("refreshtoken");
+    return res.json({
+        message: "Sucesso no log out!",
+        type: "success",
+    });
+});
+
+// requisição do refresh token
+router.post("/refresh_token", async (req, res) => {
+    try{
+        const{ refreshtoken } = req.cookies;
+
+        // se não tem um refresh token, retorna erro
+        if(!refreshtoken){
+            return res.status(500).json({
+                message: "Nenhum refresh token",
+                type: "error",
+            });
+        }
+
+        // se tem um refresh token, verifica ele
+        let id;
+        try{
+            id = verify(refreshtoken, process.env.REFRESH_TOKEN_SECRET).id;
+        } catch(error){
+            return res.status(500).json({
+                message: "Refresh token inválido",
+                type: "error",
+            });
+        }
+
+        // se o refresh token é inválido, retornar erro
+        if(!id){
+            return res.status(500).json({
+                message: "Refresh token inválido",
+                type: "error",
+            });
+        }
+
+        const usuario = await Usuario.findById(id); // se o refresh token é válido, checa se o usuario existe
+
+        // se o usuario não existe, retorna erro
+        if(!usuario){
+            return res.status(500).json({
+                message: "Usuario não existe",
+                type: "error",
+            });
+        }
+
+        // se o usuario existe, checa se o refresh token está correto, retorna erro se não estiver
+        if(usuario.refreshtoken !== refreshtoken){
+            return res.status(500).json({
+                message: "Refresh token inválido",
+                type: "error",
+            });
+        }
+
+        // se o refresh token está correto, cria os novos tokens
+        const acessToken = criarAccessToken(usuario._id);
+        const refreshToken = criarRefreshToken(usuario._id);
+
+        // atualiza o refresh token na base de dados
+        usuario.refreshtoken = refreshToken;
+
+        // envia os novos tokens como resposta
+        enviarRefreshToken(res, refreshToken);
+        return res.json({
+            message: "Atualizado com sucesso!",
+            type: "sucess",
+            acessToken,
+        });
+    } catch(error){
+        res.status(500).json({
+            type: 'error',
+            message: "Erro atualizando token",
             error,
         });
     }
