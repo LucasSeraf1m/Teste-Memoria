@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const { hash, compare } = require("bcryptjs");
-const { verify } = require("jsonwebtoken") 
+const { verify } = require("jsonwebtoken")
 
 const Usuario = require("./usuario"); // importando o modelo do usuario
 const{
@@ -10,6 +10,7 @@ const{
     enviarAcessToken,
     enviarRefreshToken,
 } = require("./tokens");
+const { protected } = require("./protegido");
 
 // request de sign up
 router.post("/signup", async (req, res) => {
@@ -171,6 +172,30 @@ router.post("/refresh_token", async (req, res) => {
             type: 'error',
             message: "Erro atualizando token",
             error,
+        });
+    }
+});
+
+router.get("/protegido", protected, async (req, res) => {
+    try{
+        // se o usuario existe na requisição, envia os dados
+        if(req.user){
+            return res.json({
+                message: "Você está logado!",
+                type: "success",
+                usuario: req.usuario,
+            });
+        }
+
+        // se o usuario não existe, retorna erro
+        return res.status(500).json({
+            message: "Você não está logado",
+            type: "error",
+        });
+    } catch(error){
+        res.status(500).json({
+            message: "Erro acessando rota protegida",
+            type: "error",
         });
     }
 });
