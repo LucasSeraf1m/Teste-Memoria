@@ -7,7 +7,7 @@ const Usuario = require("./usuario"); // importando o modelo do usuario
 const{
     criarAccessToken,
     criarRefreshToken,
-    enviarAcessToken,
+    enviarAccessToken,
     enviarRefreshToken,
 } = require("./tokens");
 const { protected } = require("./protegido");
@@ -25,7 +25,7 @@ router.post("/signup", async (req, res) => {
                 message: "Usuario já existe! Tente fazer login",
                 type: "warning",
             });
-        };
+        }
         // 2. se o usuario não existe, cria um novo
         // hashing da senha
         const hashSenha = await hash(senha, 10);
@@ -53,7 +53,7 @@ router.post("/signup", async (req, res) => {
 router.post("/signin", async (req, res) => {
     try{
         const{ email, senha } = req.body;
-        const usuario = await Usuario.findOne({ email: email}); // 1. checa se o usuario existe
+        const usuario = await Usuario.findOne({ email: email }); // 1. checa se o usuario existe
 
         // se usuario não existe, retorna erro
         if(!usuario){
@@ -61,7 +61,7 @@ router.post("/signin", async (req, res) => {
                 message: "Usuario não existe",
                 type: "error",
             });
-        };
+        }
         
         const seCorresponde = await compare(senha, usuario.senha); // 2. se o usuario existe, checa se a senha esta correta
 
@@ -71,7 +71,7 @@ router.post("/signin", async (req, res) => {
                 message: "Senha está incorreta",
                 type: "error",
             });
-        };
+        } 
 
         // 3. se a senha está correta, cria os tokens
         const accessToken = criarAccessToken(usuario._id);
@@ -83,7 +83,7 @@ router.post("/signin", async (req, res) => {
 
         // 5. envia a resposta
         enviarRefreshToken(res, refreshToken);
-        enviarAcessToken(req, res, accessToken);
+        enviarAccessToken(req, res, accessToken);
     } catch(error){
         res.status(500).json({
             type: "error",
@@ -154,7 +154,7 @@ router.post("/refresh_token", async (req, res) => {
         }
 
         // se o refresh token está correto, cria os novos tokens
-        const acessToken = criarAccessToken(usuario._id);
+        const accessToken = criarAccessToken(usuario._id);
         const refreshToken = criarRefreshToken(usuario._id);
 
         // atualiza o refresh token na base de dados
@@ -165,7 +165,7 @@ router.post("/refresh_token", async (req, res) => {
         return res.json({
             message: "Atualizado com sucesso!",
             type: "sucess",
-            acessToken,
+            accessToken,
         });
     } catch(error){
         res.status(500).json({
@@ -179,7 +179,7 @@ router.post("/refresh_token", async (req, res) => {
 router.get("/protegido", protected, async (req, res) => {
     try{
         // se o usuario existe na requisição, envia os dados
-        if(req.user){
+        if(req.usuario){
             return res.json({
                 message: "Você está logado!",
                 type: "success",
@@ -196,6 +196,7 @@ router.get("/protegido", protected, async (req, res) => {
         res.status(500).json({
             message: "Erro acessando rota protegida",
             type: "error",
+            error,
         });
     }
 });
