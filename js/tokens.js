@@ -2,22 +2,22 @@ const { sign } = require("jsonwebtoken");
 
 // assina o access token
 const criarAccessToken = (id) => {
-    return sign({ id }, process.env.ACESS_TOKEN_SECRET, {
-        expiresIN: 15 * 60,
+    return sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
+        expiresIn: 15 * 60,
     });
 }
 
 // assina o refresh token
 const criarRefreshToken = (id) => {
-    return sign({id}, process.env.REFRESH_TOKEN_SECRET, {
+    return sign({ id }, process.env.REFRESH_TOKEN_SECRET, {
         expiresIn: "90d",
     });
 }
 
 // enviando o access token ao cliente
-const enviarAcessToken = (_req, res, acesstoken) => {
+const enviarAccessToken = (_req, res, accesstoken) => {
     res.json({
-        acesstoken,
+        accesstoken,
         message: "Sucesso no sign in!",
         type: "success",
     });
@@ -33,6 +33,6 @@ const enviarRefreshToken = (res, refreshtoken) => {
 module.exports = {
     criarAccessToken,
     criarRefreshToken,
-    enviarAcessToken,
+    enviarAccessToken,
     enviarRefreshToken,
 }

@@ -1,5 +1,6 @@
 const { verify } = require("jsonwebtoken");
 const Usuario = require("./usuario");
+
 const protected = async (req, res, next) => {
     const autorizacao = req.headers["autorizacao"]; // pega o token do header
 
