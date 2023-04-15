@@ -17,7 +17,6 @@ const app = express(); // criando o express app
 app.use(express.json()); // parsear o body do request como JSON
 app.use(express.urlencoded({ extended: false })); // parsear o body do request como query string
 app.use(cookieParser()); // parsear os cookies
-app.use(express.static('/css/login.css', { root: '.' }))
 
 // adicionando rotas
 app.use("/", indexRouter);
