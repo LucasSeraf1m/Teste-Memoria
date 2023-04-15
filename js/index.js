@@ -11,4 +11,9 @@ router.get("/auth", function (req, res) {
     res.send("Router do auth");
 });
 
+// GET login
+router.get("/login", function (req, res) {
+    res.sendFile('./html/login.html', { root: '.' });
+});
+
 module.exports = router;

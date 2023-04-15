@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 // importanto as rotas
 const indexRouter = require("./js/index");
 const authRouter = require("./js/auth");
+const loginRouter = require("./js/login");
 
 const PORT = 8080;
 
@@ -16,12 +17,15 @@ const app = express(); // criando o express app
 app.use(express.json()); // parsear o body do request como JSON
 app.use(express.urlencoded({ extended: false })); // parsear o body do request como query string
 app.use(cookieParser()); // parsear os cookies
+app.use(express.static('/css/login.css', { root: '.' }))
 
 // adicionando rotas
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
+app.use("/login", loginRouter);
 
-// iniciando o servidor
+
+//iniciando o servidor
 app.listen(PORT, function () {
   console.log(`🚀 Listening on port ${PORT}`);
 });
