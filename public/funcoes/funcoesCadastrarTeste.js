@@ -1,0 +1,3 @@
+function cadastrarTeste(){
+    alert("adf")
+}
