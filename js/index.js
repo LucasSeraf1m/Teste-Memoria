@@ -16,4 +16,9 @@ router.get("/login", function (req, res) {
     res.sendFile('./html/login.html', { root: '.' });
 });
 
+// GET cadastro de teste
+router.get("/cadastrodetestes", function (req, res) {
+    res.sendFile('./html/cadastrar_teste.html', { root: '.' });
+});
+
 module.exports = router;
