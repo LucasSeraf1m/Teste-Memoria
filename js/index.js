@@ -3,7 +3,7 @@ var router = express.Router(); // cria o router
 
 // GET pagina home 
 router.get("/", function (req, res) {
-    res.send("Olá Express!! 👋");
+    res.sendFile('./html/home.html', { root: '.' });
 });
 
 // GET auth

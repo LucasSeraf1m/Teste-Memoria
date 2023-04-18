@@ -176,7 +176,7 @@ router.post("/refresh_token", async (req, res) => {
     }
 });
 
-router.get("/protegido", protected, async (req, res) => {
+router.get("/protected", protected, async (req, res) => {
     try{
         // se o usuario existe na requisição, envia os dados
         if(req.usuario){
