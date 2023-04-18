@@ -3,7 +3,7 @@ var router = express.Router(); // cria o router
 
 // GET pagina home 
 router.get("/", function (req, res) {
-    res.send("Olá Express!! 👋");
+    res.sendFile('./html/home.html', { root: '.' });
 });
 
 // GET auth
@@ -20,5 +20,6 @@ router.get("/login", function (req, res) {
 router.get("/cadastrodetestes", function (req, res) {
     res.sendFile('./html/cadastrar_teste.html', { root: '.' });
 });
+
 
 module.exports = router;
