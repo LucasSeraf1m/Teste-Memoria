@@ -17,7 +17,7 @@ router.get("/login", function (req, res) {
 });
 
 // GET cadastro de teste
-router.get("/cadastrodetestes", function (req, res) {
+router.get("/login/cadastrodetestes", function (req, res) {
     res.sendFile('./html/cadastrar_teste.html', { root: '.' });
 });
 
