@@ -9,10 +9,13 @@ const indexRouter = require("./js/index");
 const authRouter = require("./js/auth");
 const loginRouter = require("./js/login");
 const cadastroTesteRouter = require("./js/cadastro_teste")
+const teste = require('./js/teste')
 
 const PORT = 8080;
+const PORTeste = 8081;
 
 const app = express(); // criando o express app
+const appTeste = express();
 
 // adicionando middleware para:
 app.use(express.json()); // parsear o body do request como JSON
@@ -26,12 +29,16 @@ app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/login", loginRouter);
 app.use("/cadastrodetestes", cadastroTesteRouter);
-
+appTeste.use("/", teste)
 
 //iniciando o servidor
 app.listen(PORT, function () {
   console.log(`🚀 Listening on port ${PORT}`);
 });
+
+appTeste.listen(PORTeste, () => {
+  console.log("hehe")
+})
 
 const mongoose = require('mongoose');
 
