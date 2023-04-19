@@ -1,3 +1,12 @@
+const fs = require('fs')
+
+// const dados = fs.readFile('../dados/teste.json')
+
 function cadastrarTeste(){
-    alert("adf")
+    console.log("dados")
 }
+
+
+cadastrarTeste()
+
+console.log("dd")
