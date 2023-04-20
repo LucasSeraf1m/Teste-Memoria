@@ -1,12 +1,38 @@
-{
-    "title": "nome teste",
-    "perguntas" : {
-        "Titulo da pergunta": "pergunta",
-        "opcaoA": "opcaoA",
-        "opcaoB": "opcaoB",
-        "opcaoC": "opcaoC",
-        "opcaoD": "opcaoD",
-        "opcaoE": "opcaoE",
-        "Resporta": "opcao certa"
+[
+    {
+        "title": "nome teste",
+        "perguntas" : {
+            "tituloDaPergunta": "pergunta",
+            "opcaoA": "opcaoA",
+            "opcaoB": "opcaoB",
+            "opcaoC": "opcaoC",
+            "opcaoD": "opcaoD",
+            "opcaoE": "opcaoE",
+            "resporta": "opcao certa"
+        }
+    },
+    {
+        "title": "nome teste",
+        "perguntas" : {
+            "tituloDaPergunta": "pergunta",
+            "opcaoA": "opcaoA",
+            "opcaoB": "opcaoB",
+            "opcaoC": "opcaoC",
+            "opcaoD": "opcaoD",
+            "opcaoE": "opcaoE",
+            "resporta": "opcao certa"
+        }
+    },
+    {
+        "title": "nome teste",
+        "perguntas" : {
+            "tituloDaPergunta": "pergunta",
+            "opcaoA": "opcaoA",
+            "opcaoB": "opcaoB",
+            "opcaoC": "opcaoC",
+            "opcaoD": "opcaoD",
+            "opcaoE": "opcaoE",
+            "resporta": "opcao certa"
+        }
     }
-}
+]
