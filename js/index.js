@@ -21,5 +21,4 @@ router.get("/login/cadastrodetestes", function (req, res) {
     res.sendFile('./html/cadastrar_teste.html', { root: '.' });
 });
 
-
 module.exports = router;

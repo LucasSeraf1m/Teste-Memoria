@@ -8,9 +8,9 @@ const cors = require('cors')
 // importanto as rotas
 const indexRouter = require("./js/index");
 const authRouter = require("./js/auth");
-const loginRouter = require("./js/login");
-const cadastroTesteRouter = require("./js/cadastro_teste")
-const teste = require('./js/teste')
+const loginRouter = require("./js/route_login");
+const cadastroTesteRouter = require("./js/route_cadastro_teste")
+const teste = require('./js/route_testes')
 
 const PORT = 8080;
 const PORTeste = 8081;
@@ -36,11 +36,11 @@ appTeste.use("/", teste)
 
 //iniciando o servidor
 app.listen(PORT, function () {
-  console.log(`🚀 Listening on port ${PORT}`);
+  console.log(`🚀 Escutando na porta ${PORT}`);
 });
 
 appTeste.listen(PORTeste, () => {
-  console.log("hehe")
+  console.log(`🚀 Escutando na porta ${PORTeste}`);
 })
 
 const mongoose = require('mongoose');
