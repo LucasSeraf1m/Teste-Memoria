@@ -18,6 +18,7 @@ const PORTeste = 8081;
 const app = express(); // criando o express app
 const appTeste = express();
 
+//habilitar segurança para requisição de outros sites
 appTeste.use(cors())
 
 // adicionando middleware para:
@@ -40,7 +41,7 @@ app.listen(PORT, function () {
 });
 
 appTeste.listen(PORTeste, () => {
-  console.log("hehe")
+  console.log("Rodando hehe")
 })
 
 const mongoose = require('mongoose');
