@@ -3,6 +3,7 @@ require('dotenv').config(); // para usar variaveis de ambiente (tentar excluir p
 // importando dependencias
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const cors = require('cors')
 
 // importanto as rotas
 const indexRouter = require("./js/index");
@@ -17,12 +18,14 @@ const PORTeste = 8081;
 const app = express(); // criando o express app
 const appTeste = express();
 
+appTeste.use(cors())
+
 // adicionando middleware para:
 app.use(express.json()); // parsear o body do request como JSON
 app.use(express.urlencoded({ extended: false })); // parsear o body do request como query string
 app.use(cookieParser()); // parsear os cookies
 app.use(express.static("./public")) // pegar os css funcoes
-app.use(express.static("./public/dados")) // pegar os css funcoes
+app.use(express.static("./public/dados")) // Verificar possibilidade de apagar linha
 
 // adicionando rotas
 app.use("/", indexRouter);
