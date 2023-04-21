@@ -8,7 +8,30 @@
 </head>
 <body>
     <h1 id="nome">Teste: </h1>
-    
+    <section id="sec">
+        <h1>Perguntas</h1>
+        <article id="art1">
+            <form>
+                <label for="pergunta">Pergunta</label>
+                <input type="text" id="pergunta">
+                <label for="opcaoA">Opcao A</label>
+                <input type="text" id="opcaoA">
+                <label for="opcaoB">Opcao B</label>
+                <input type="text" id="opcaoB">
+                <label for="opcaoC">Opcao C</label>
+                <input type="text" id="opcaoC">
+                <label for="opcaoD">Opcao D</label>
+                <input type="text" id="opcaoD">
+                <label for="opcaoE">Opcao E</label>
+                <input type="text" id="opcaoE">
+                <label for="respostaCorreta">Resposta Correta</label>
+                <input type="text" id="respostaCorreta">
+                <input type="button" value="Salvar Pergunta" onclick="salvarPergunta()">
+            </form>
+        </article>
+    </section>
+    <input type="button" value="Add Pergunta" onclick="addPergunta()">
+    <input type="button" value="Salvar Teste">
     <script src="../../../funcoes/funcoes_cadastrar_perguntas.js"></script>
 </body>
 </html>
