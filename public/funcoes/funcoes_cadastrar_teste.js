@@ -1,4 +1,5 @@
-const art = document.getElementById("art")
+const sec = document.getElementById("sec")
+var numTest = 0
 
 async function getTeste() {
     try {
@@ -7,11 +8,26 @@ async function getTeste() {
         
         for(let teste of data) {
 
+            numTest++;
+
+            //cria o html com o nome dos testes
+            var art = document.createElement("article")
+            art.setAttribute("id", "teste"+numTest)
+
             var htmlTeste = document.createElement("h1")
             var txtTeste = document.createTextNode(teste.title)
+
+            var botao = document.createElement("input")
+            botao.type = "button"
+            botao.setAttribute("value", "Add Pergunta")
+            //testando funcao
+            botao.setAttribute("onclick", "alert("+numTest+")")
+
             htmlTeste.appendChild(txtTeste)
 
             art.appendChild(htmlTeste)
+            art.appendChild(botao)
+            sec.appendChild(art)
         }
     } catch(erro) {
         console.log(erro);
@@ -59,11 +75,24 @@ function setTeste() {
         .catch(error => console.error('Error:', error));
       })
       .catch(error => console.error('Error:', error));
+      
+      numTest++;
+
+      //cria o html com o nome do teste recem criado
+      var art = document.createElement("article")
+      art.setAttribute("id", "teste"+numTest)
+
+      var botao = document.createElement("input")
+      botao.type = "button"
+      botao.setAttribute("value", "Add Pergunta")
+
 
       var htmlTeste = document.createElement("h1")
       var txtTeste = document.createTextNode(nome)
       htmlTeste.appendChild(txtTeste)
 
-    art.appendChild(htmlTeste)
+      art.appendChild(htmlTeste)
+      art.appendChild(botao)
+      sec.appendChild(art)
 }
 getTeste()
