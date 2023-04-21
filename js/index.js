@@ -21,4 +21,9 @@ router.get("/login/cadastrodetestes", function (req, res) {
     res.sendFile('./html/cadastrar_teste.html', { root: '.' });
 });
 
+// GET cadastro de perguntas
+router.get(/.*cadastrodeperguntas$/, function (req, res) {
+    res.sendFile('./html/cadastrar_pergunta.html', { root: '.' });
+});
+
 module.exports = router;

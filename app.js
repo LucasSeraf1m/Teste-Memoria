@@ -10,6 +10,7 @@ const indexRouter = require("./js/index");
 const authRouter = require("./js/auth");
 const loginRouter = require("./js/route_login_cadastro");
 const cadastroTesteRouter = require("./js/route_cadastro_teste")
+const cadastroPerguntaRouter = require("./js/route_cadastro_pergunta")
 const teste = require('./js/route_testes')
 
 const PORT = 8080;
@@ -26,17 +27,18 @@ appTeste.use(cors()) //deixar estes use com cors em cima dos outro
 app.use(express.json()); // parsear o body do request como JSON
 app.use(express.urlencoded({ extended: false })); // parsear o body do request como query string
 app.use(cookieParser()); // parsear os cookies
-app.use(express.static("./public")) // pegar os css funcoes
+app.use(express.static("./public")) // pegar os css e funcoes
 app.use(express.static("./public/dados")) // Verificar possibilidade de apagar linha
 appTeste.use(cookieParser()); // parsear os cookies
 appTeste.use(express.urlencoded({ extended: false })); // parsear o body do request como query string
-appTeste.use(express.static("./public")) // pegar os css funcoes
+appTeste.use(express.static("./public")) // pegar os css e funcoes
 
 // adicionando rotas
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/login", loginRouter);
 app.use("/cadastrodetestes", cadastroTesteRouter);
+app.use("/cadastrodeperguntas", cadastroPerguntaRouter);
 appTeste.use("/", teste)
 
 //iniciando o servidor

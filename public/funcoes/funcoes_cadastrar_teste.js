@@ -1,3 +1,4 @@
+
 const sec = document.getElementById("sec")
 var numTest = 0
 
@@ -21,7 +22,7 @@ async function getTeste() {
             botao.type = "button"
             botao.setAttribute("value", "Add Pergunta")
             //testando funcao
-            botao.setAttribute("onclick", "alert("+numTest+")")
+            botao.setAttribute("onclick", "window.location='http://localhost:8080/login/cadastrodetestes/"+teste.title+"/cadastrodeperguntas'")
 
             htmlTeste.appendChild(txtTeste)
 
@@ -85,7 +86,7 @@ function setTeste() {
       var botao = document.createElement("input")
       botao.type = "button"
       botao.setAttribute("value", "Add Pergunta")
-
+      botao.setAttribute("onclick", "window.location='http://localhost:8080/login/cadastrodetestes/"+nome+"/cadastrodeperguntas'")
 
       var htmlTeste = document.createElement("h1")
       var txtTeste = document.createTextNode(nome)
