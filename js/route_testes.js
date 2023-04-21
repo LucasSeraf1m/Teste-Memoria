@@ -9,8 +9,10 @@ router.get('/', (req, res) => {
 })
 
 router.post('/addTeste', (req, res) => {
-    const { title } = req.body
+    // const { title } = req.body
+    console.
 })
+
 // fs.writeFile('../public/dados/teste.json', JSON.stringify(json), 'utf-8', (err) => {
 //     if (err) throw err;
 //     console.log('The file has been saved!');
