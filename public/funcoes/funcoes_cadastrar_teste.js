@@ -1,8 +1,6 @@
-import dadosss from '../dados'
-
-async function getConection() {
+async function getTeste() {
     try {
-        const response = await fetch('http://localhost:8080/requisicao')
+        const response = await fetch('http://localhost:8080')
         const data = await response.json();
         
         for(let pergunta of data) {
@@ -20,4 +18,11 @@ async function getConection() {
     }
 }
 
-getConection()
+function setTeste() {
+    const title = "title";
+
+    fetch('http://localhost:8081/addTeste');
+}
+
+setTeste()
+getTeste()

@@ -8,6 +8,10 @@ router.get('/', (req, res) => {
     res.send(dados)
 })
 
+router.get('/addTeste', (req, res) => {
+    res.send("dd")
+    console.log(req.body)
+})
 // fs.writeFile('../public/dados/teste.json', JSON.stringify(json), 'utf-8', (err) => {
 //     if (err) throw err;
 //     console.log('The file has been saved!');

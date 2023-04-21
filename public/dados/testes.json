@@ -1,25 +1,8 @@
 [
     {
         "title": "nome teste",
-        "perguntas" : [{
-            "tituloDaPergunta": "pergunta",
-                "opcaoA": "opcaoA",
-                "opcaoB": "opcaoB",
-                "opcaoC": "opcaoC",
-                "opcaoD": "opcaoD",
-                "opcaoE": "opcaoE",
-                "resporta": "opcao certa"
-            },
-            {
-                "tituloDaPergunta": "pergunta",
-                "opcaoA": "opcaoA",
-                "opcaoB": "opcaoB",
-                "opcaoC": "opcaoC",
-                "opcaoD": "opcaoD",
-                "opcaoE": "opcaoE",
-                "resporta": "opcao certa"
-            }
-        ]
+        "email": "lucas@gmail.com",
+        "perguntas": ""
     },
     {
         "title": "nome teste",
