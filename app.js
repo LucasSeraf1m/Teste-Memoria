@@ -8,7 +8,7 @@ const cors = require('cors')
 // importanto as rotas
 const indexRouter = require("./js/index");
 const authRouter = require("./js/auth");
-const loginRouter = require("./js/route_login");
+const loginRouter = require("./js/route_login_cadastro");
 const cadastroTesteRouter = require("./js/route_cadastro_teste")
 const teste = require('./js/route_testes')
 

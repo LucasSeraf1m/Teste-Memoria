@@ -13,7 +13,7 @@ router.get("/auth", function (req, res) {
 
 // GET login
 router.get("/login", function (req, res) {
-    res.sendFile('./html/login.html', { root: '.' });
+    res.sendFile('./html/login_cadastro.html', { root: '.' });
 });
 
 // GET cadastro de teste
