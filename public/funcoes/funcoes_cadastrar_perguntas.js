@@ -3,7 +3,7 @@ const url = window.location.pathname
 const parts = url.split('/')
 const nomeTeste = parts[3]
 
-console.log(parts[3])
+console.log(nomeTeste)
 
 async function getTeste() {
     try {
