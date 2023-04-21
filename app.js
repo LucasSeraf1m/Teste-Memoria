@@ -19,7 +19,8 @@ const app = express(); // criando o express app
 const appTeste = express();
 
 //habilitar segurança para requisição de outros sites
-appTeste.use(cors())
+app.use(cors()) //deixar estes use com cors em cima dos outro
+appTeste.use(cors()) //deixar estes use com cors em cima dos outro
 
 // adicionando middleware para:
 app.use(express.json()); // parsear o body do request como JSON
@@ -27,6 +28,9 @@ app.use(express.urlencoded({ extended: false })); // parsear o body do request c
 app.use(cookieParser()); // parsear os cookies
 app.use(express.static("./public")) // pegar os css funcoes
 app.use(express.static("./public/dados")) // Verificar possibilidade de apagar linha
+appTeste.use(cookieParser()); // parsear os cookies
+appTeste.use(express.urlencoded({ extended: false })); // parsear o body do request como query string
+appTeste.use(express.static("./public")) // pegar os css funcoes
 
 // adicionando rotas
 app.use("/", indexRouter);

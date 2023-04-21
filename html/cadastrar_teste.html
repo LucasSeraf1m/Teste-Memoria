@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="../css/cadastrar_teste.css">
 </head>
 <body>
-    <label for="nomeTeste">Nome do Teste</label>
-    <input type="text" id="nomeTeste">
-    <input type="button" value="Enviar" onclick="cadastrarTeste()">
+    <form action="http://localhost:8081/add" method="POST">
+        <label for="nometeste">Nome do Teste</label>
+        <input type="text" id="nometeste">
+        <input type="submit" value="Enviar"">
+    </form>
+    
     <button type="button" onclick="window.location = 'http://localhost:8080/login'">Voltar</button>
 
     <script src="../funcoes/funcoes_cadastrar_teste.js"></script>
