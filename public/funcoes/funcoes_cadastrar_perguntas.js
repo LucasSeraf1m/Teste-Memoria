@@ -9,19 +9,39 @@ const h = document.getElementById("nome")
 
 h.appendChild(nome)
 
-//
-var numPergunta = 0
+var numPerguntaNova = 0
+var numPerguntaTeste = 0
 
+var titulo
+var opAT
+var opBT
+var opCT
+var opDT
+var opET
+var opCertaT
 
-// função para 
-async function getTeste() {
+// função para pegar as perguntas do teste
+async function getPerguntas() {
     try {
         const response = await fetch('http://localhost:8081')
         const data = await response.json();
         
+        // pega as perguntas e alternativas do teste selecionado e chama a funcao de perguntas como true
         for(let teste of data) {
             if(teste.title === nomeTeste){
-                
+                var i;
+                for(i=0; i<teste.perguntas.length; i++){
+                    if(teste.perguntas[i].tituloDaPergunta != ''){
+                        titulo = teste.perguntas[i].tituloDaPergunta
+                        opAT = teste.perguntas[i].opcaoA
+                        opBT = teste.perguntas[i].opcaoB
+                        opCT = teste.perguntas[i].opcaoC
+                        opDT = teste.perguntas[i].opcaoD
+                        opET = teste.perguntas[i].opcaoE
+                        opCertaT = teste.perguntas[i].resposta
+                        addPergunta(true)
+                    }
+                }     
             }
         }
     }catch(erro) {
@@ -30,70 +50,144 @@ async function getTeste() {
 }
 
 // funçao para adicionar novos campos de cadastro de perguntas no html
-function addPergunta(){
-    numPergunta++;
+function addPergunta(b){
 
+    // cria o html das perguntas
     const sec = document.getElementById("sec")
     const art = document.createElement("article")
-    art.setAttribute("id", "art"+numPergunta)
     const formu = document.createElement("form")
 
-    const titlePergunta = document.createElement("input")
-    titlePergunta.type = "text"
-    titlePergunta.setAttribute("id", "pergunta"+numPergunta)
-    titlePergunta.setAttribute("class", "op"+numPergunta)
-    const txtPergunta = document.createElement("label")
-    const textPergunta = document.createTextNode("Pergunta "+numPergunta)
-    txtPergunta.setAttribute("for", "titlePergunta")
-    const opA = document.createElement("input")
+    if(b){
 
-    opA.type = "text"
-    opA.setAttribute("id", "opA"+numPergunta)
-    opA.setAttribute("class", "op"+numPergunta)
-    const txtopA = document.createElement("label")
-    const textopA = document.createTextNode("Opcão A")
-    txtopA.setAttribute("for", "opA"+numPergunta)
+      numPerguntaTeste++;
 
-    const opB = document.createElement("input")
-    opB.type = "text"
-    opB.setAttribute("id", "opB"+numPergunta)
-    opB.setAttribute("class", "op"+numPergunta)
-    const txtopB = document.createElement("label")
-    const textopB = document.createTextNode("Opcão B")
-    txtopB.setAttribute("for", "opB"+numPergunta)
+      art.setAttribute("id", "art"+numPerguntaTeste)
+      const titlePergunta = document.createElement("input")
+      titlePergunta.type = "text"
+      titlePergunta.setAttribute("id", "pergunta"+numPerguntaTeste)
+      titlePergunta.setAttribute("class", "op"+numPerguntaTeste)
+      const txtPergunta = document.createElement("label")
+      const textPergunta = document.createTextNode("Pergunta "+numPerguntaTeste)
+      txtPergunta.setAttribute("for", "titlePergunta")
+      const opA = document.createElement("input")
+  
+      opA.type = "text"
+      opA.setAttribute("id", "opA"+numPerguntaTeste)
+      opA.setAttribute("class", "op"+numPerguntaTeste)
+      const txtopA = document.createElement("label")
+      const textopA = document.createTextNode("Opcão A")
+      txtopA.setAttribute("for", "opA"+numPerguntaTeste)
+  
+      const opB = document.createElement("input")
+      opB.type = "text"
+      opB.setAttribute("id", "opB"+numPerguntaTeste)
+      opB.setAttribute("class", "op"+numPerguntaTeste)
+      const txtopB = document.createElement("label")
+      const textopB = document.createTextNode("Opcão B")
+      txtopB.setAttribute("for", "opB"+numPerguntaTeste)
+  
+      const opC = document.createElement("input")
+      opC.type = "text"
+      opC.setAttribute("id", "opC"+numPerguntaTeste)
+      opC.setAttribute("class", "op"+numPerguntaTeste)
+      const txtopC = document.createElement("label")
+      const textopC = document.createTextNode("Opcão C")
+      txtopC.setAttribute("for", "opC"+numPerguntaTeste)
+  
+      const opD = document.createElement("input")
+      opD.type = "text"
+      opD.setAttribute("id", "opD"+numPerguntaTeste)
+      opD.setAttribute("class", "op"+numPerguntaTeste)
+      const txtopD = document.createElement("label")
+      const textopD = document.createTextNode("Opcão D")
+      txtopD.setAttribute("for", "opD"+numPerguntaTeste)
+  
+      const opE = document.createElement("input")
+      opE.type = "text"
+      opE.setAttribute("id", "opE"+numPerguntaTeste)
+      opE.setAttribute("class", "op"+numPerguntaTeste)
+      const txtopE = document.createElement("label")
+      const textopE = document.createTextNode("Opcão E")
+      txtopE.setAttribute("for", "opE"+numPerguntaTeste)
+  
+      const opCerta = document.createElement("input")
+      opCerta.type = "text"
+      opCerta.setAttribute("id", "opCerta"+numPerguntaTeste)
+      opCerta.setAttribute("class", "op"+numPerguntaTeste)
+      const txtopCerta = document.createElement("label")
+      const textopCerta = document.createTextNode("Resposta Correta")
+      txtopCerta.setAttribute("for", "opCerta"+numPerguntaTeste)
+  
 
-    const opC = document.createElement("input")
-    opC.type = "text"
-    opC.setAttribute("id", "opC"+numPergunta)
-    opC.setAttribute("class", "op"+numPergunta)
-    const txtopC = document.createElement("label")
-    const textopC = document.createTextNode("Opcão C")
-    txtopC.setAttribute("for", "opC"+numPergunta)
+      opA.setAttribute("id", "opA"+numPerguntaTeste)
+      opA.setAttribute("class", "op"+numPerguntaTeste)
+      opA.setAttribute("value", opAT)
+      opB.setAttribute("value", opBT)
+      opC.setAttribute("value", opCT)
+      opD.setAttribute("value", opDT)
+      opE.setAttribute("value", opET)
+      opCerta.setAttribute("value", opCertaT)
+    }else{
+      numPerguntaNova++;
 
-    const opD = document.createElement("input")
-    opD.type = "text"
-    opD.setAttribute("id", "opD"+numPergunta)
-    opD.setAttribute("class", "op"+numPergunta)
-    const txtopD = document.createElement("label")
-    const textopD = document.createTextNode("Opcão D")
-    txtopD.setAttribute("for", "opD"+numPergunta)
+      art.setAttribute("id", "art"+numPerguntaNova)
+      const titlePergunta = document.createElement("input")
+      titlePergunta.type = "text"
+      titlePergunta.setAttribute("id", "pergunta"+numPerguntaNova)
+      titlePergunta.setAttribute("class", "op"+numPerguntaNova)
+      const txtPergunta = document.createElement("label")
+      const textPergunta = document.createTextNode("Pergunta "+numPerguntaNova)
+      txtPergunta.setAttribute("for", "titlePergunta")
+      const opA = document.createElement("input")
+  
+      opA.type = "text"
+      opA.setAttribute("id", "opA"+numPerguntaNova)
+      opA.setAttribute("class", "op"+numPerguntaNova)
+      const txtopA = document.createElement("label")
+      const textopA = document.createTextNode("Opcão A")
+      txtopA.setAttribute("for", "opA"+numPerguntaNova)
+  
+      const opB = document.createElement("input")
+      opB.type = "text"
+      opB.setAttribute("id", "opB"+numPerguntaNova)
+      opB.setAttribute("class", "op"+numPerguntaNova)
+      const txtopB = document.createElement("label")
+      const textopB = document.createTextNode("Opcão B")
+      txtopB.setAttribute("for", "opB"+numPerguntaNova)
+  
+      const opC = document.createElement("input")
+      opC.type = "text"
+      opC.setAttribute("id", "opC"+numPerguntaNova)
+      opC.setAttribute("class", "op"+numPerguntaNova)
+      const txtopC = document.createElement("label")
+      const textopC = document.createTextNode("Opcão C")
+      txtopC.setAttribute("for", "opC"+numPerguntaNova)
+  
+      const opD = document.createElement("input")
+      opD.type = "text"
+      opD.setAttribute("id", "opD"+numPerguntaNova)
+      opD.setAttribute("class", "op"+numPerguntaNova)
+      const txtopD = document.createElement("label")
+      const textopD = document.createTextNode("Opcão D")
+      txtopD.setAttribute("for", "opD"+numPerguntaNova)
+  
+      const opE = document.createElement("input")
+      opE.type = "text"
+      opE.setAttribute("id", "opE"+numPerguntaNova)
+      opE.setAttribute("class", "op"+numPerguntaNova)
+      const txtopE = document.createElement("label")
+      const textopE = document.createTextNode("Opcão E")
+      txtopE.setAttribute("for", "opE"+numPerguntaNova)
+  
+      const opCerta = document.createElement("input")
+      opCerta.type = "text"
+      opCerta.setAttribute("id", "opCerta"+numPerguntaNova)
+      opCerta.setAttribute("class", "op"+numPerguntaNova)
+      const txtopCerta = document.createElement("label")
+      const textopCerta = document.createTextNode("Resposta Correta")
+      txtopCerta.setAttribute("for", "opCerta"+numPerguntaNova)
 
-    const opE = document.createElement("input")
-    opE.type = "text"
-    opE.setAttribute("id", "opE"+numPergunta)
-    opE.setAttribute("class", "op"+numPergunta)
-    const txtopE = document.createElement("label")
-    const textopE = document.createTextNode("Opcão E")
-    txtopE.setAttribute("for", "opE"+numPergunta)
-
-    const opCerta = document.createElement("input")
-    opCerta.type = "text"
-    opCerta.setAttribute("id", "opCerta"+numPergunta)
-    opCerta.setAttribute("class", "op"+numPergunta)
-    const txtopCerta = document.createElement("label")
-    const textopCerta = document.createTextNode("Resposta Correta")
-    txtopCerta.setAttribute("for", "opCerta"+numPergunta)
-
+    }
 
     txtPergunta.appendChild(textPergunta)
     txtopA.appendChild(textopA)
@@ -180,4 +274,4 @@ function salvarPergunta(){
     .catch(error => console.error('Error:', error));
 }   
 
-getTeste()
+getPerguntas()
