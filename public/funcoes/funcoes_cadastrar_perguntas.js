@@ -127,7 +127,7 @@ function salvarPergunta(){
 
     //função para pergar valor da html e adicionar na lista, formato json
     for(let i=1; i<=numPergunta; i++) { //para cada pergunta criada faça
-        var perguntas = document.querySelectorAll(".op"+numPergunta)
+        var perguntas = document.querySelectorAll(".op"+i)
         const test = [ // salvar os valores nos campos coerentes
             {
                 "tituloDaPergunta": perguntas[0].value,
@@ -139,9 +139,11 @@ function salvarPergunta(){
                 "resposta": perguntas[6].value
             }
         ]
+        console.log(test)
 
         listPerguntas.push(test) // adiciona na lista
     }
+
     
     fetch('http://localhost:8081/')
     .then(response => response.json())
