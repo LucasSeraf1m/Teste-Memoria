@@ -128,18 +128,15 @@ function salvarPergunta(){
     //função para pergar valor da html e adicionar na lista, formato json
     for(let i=1; i<=numPergunta; i++) { //para cada pergunta criada faça
         var perguntas = document.querySelectorAll(".op"+i)
-        const test = [ // salvar os valores nos campos coerentes
-            {
-                "tituloDaPergunta": perguntas[0].value,
-                "opcaoA": perguntas[1].value,
-                "opcaoB": perguntas[2].value,
-                "opcaoC": perguntas[3].value,
-                "opcaoD": perguntas[4].value,
-                "opcaoE": perguntas[5].value,
-                "resposta": perguntas[6].value
-            }
-        ]
-        console.log(test)
+        const test =  {// salvar os valores nos campos coerentes
+            "tituloDaPergunta": perguntas[0].value,
+            "opcaoA": perguntas[1].value,
+            "opcaoB": perguntas[2].value,
+            "opcaoC": perguntas[3].value,
+            "opcaoD": perguntas[4].value,
+            "opcaoE": perguntas[5].value,
+            "resposta": perguntas[6].value
+        }
 
         listPerguntas.push(test) // adiciona na lista
     }
@@ -153,9 +150,17 @@ function salvarPergunta(){
         data = JSON.parse(JSON.stringify(data));
         // console.log(teste)
         for(let teste of data) {
-            if(teste.title == nomeTeste)
-            teste.perguntas = listPerguntas
-            console.log(teste)
+            if(teste.title == nomeTeste) {
+                if(teste.perguntas == "") {
+                    teste.perguntas = listPerguntas
+                } else {
+                    for(let i=0; i<teste.perguntas.length; i++) {
+                        listPerguntas.push(teste.perguntas[i])
+                    }
+
+                    teste.perguntas = listPerguntas
+                }
+            }
         }
 
         // Convert the JavaScript object back to JSON format
@@ -173,8 +178,6 @@ function salvarPergunta(){
         .catch(error => console.error('Error:', error));
     }).then()
     .catch(error => console.error('Error:', error));
-
-    
-
 }   
+
 getTeste()

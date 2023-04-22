@@ -40,15 +40,7 @@ function setTeste() {
     document.getElementById("nometeste").value = ""
     const test = {
         "title": nome,
-        "perguntas" : {
-            "tituloDaPergunta": "",
-            "opcaoA": "",
-            "opcaoB": "",
-            "opcaoC": "",
-            "opcaoD": "",
-            "opcaoE": "",
-            "resposta": ""
-        }
+        "perguntas" : ""
     }
     
     // Read the JSON file
@@ -72,10 +64,10 @@ function setTeste() {
             'Content-Type': 'application/json'
           }
         })
-        .then(response => console.log('Data inserted successfully!'))
-        .catch(error => console.error('Error:', error));
-      })
-      .catch(error => console.error('Error:', error));
+          .then(response => console.log('Data inserted successfully!'))
+          .catch(error => console.error('Error:', error));
+        })
+    .catch(error => console.error('Error:', error));
       
       numTest++;
 
