@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.put('/add', async (req, res) => {
     var testes = req.body
     fs.unlinkSync('public/dados/testes.json')
-    fs.writeFileSync('public/dados/testes.json', JSON.stringify(testes), {encoding: "utf-8", flag: "a"})
+    fs.writeFileSync('public/dados/testes.json', JSON.stringify(testes, null, 2), {encoding: "utf-8", flag: "a"})
 })
 
 module.exports = router;
