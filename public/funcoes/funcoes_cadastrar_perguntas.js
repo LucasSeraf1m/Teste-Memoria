@@ -10,6 +10,7 @@ const h = document.getElementById("nome")
 h.appendChild(nome)
 
 var numPerguntaNova = 0
+var numPergunta = 0
 
 var titulo
 var opAT
@@ -58,6 +59,7 @@ function addPergunta(b){
 
     if(b){
 
+      numPergunta++;
 
       art.setAttribute("id", "artT")
       const titlePergunta = document.createElement("input")
@@ -65,7 +67,7 @@ function addPergunta(b){
       titlePergunta.setAttribute("id", "pergunta")
       titlePergunta.setAttribute("class", "op")
       const txtPergunta = document.createElement("label")
-      const textPergunta = document.createTextNode("Pergunta ")
+      const textPergunta = document.createTextNode("Pergunta "+numPergunta)
       txtPergunta.setAttribute("for", "titlePergunta")
       const opA = document.createElement("input")
   
@@ -154,6 +156,7 @@ function addPergunta(b){
     }else{
 
       numPerguntaNova++;
+      numPergunta++;
 
       art.setAttribute("id", "art"+numPerguntaNova)
       const titlePergunta = document.createElement("input")
@@ -161,7 +164,7 @@ function addPergunta(b){
       titlePergunta.setAttribute("id", "pergunta"+numPerguntaNova)
       titlePergunta.setAttribute("class", "op"+numPerguntaNova)
       const txtPergunta = document.createElement("label")
-      const textPergunta = document.createTextNode("Pergunta "+numPerguntaNova)
+      const textPergunta = document.createTextNode("Pergunta "+numPergunta)
       txtPergunta.setAttribute("for", "titlePergunta")
       const opA = document.createElement("input")
   
