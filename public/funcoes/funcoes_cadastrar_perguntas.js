@@ -3,7 +3,7 @@ const url = window.location.pathname
 const parts = url.split('/')
 const nomeTeste = parts[3]
 
-// Pegear elemneto h1 para adiiconar o nome do teste no html
+// Pegar elemneto h1 para adiiconar o nome do teste no html
 const nome = document.createTextNode(nomeTeste)
 const h = document.getElementById("nome")
 

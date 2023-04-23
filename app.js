@@ -13,6 +13,7 @@ const cadastroTesteRouter = require("./js/route_cadastro_teste")
 const cadastroPerguntaRouter = require("./js/route_cadastro_pergunta")
 const teste = require('./js/route_testes')
 const listaTesteRouter = require('./js/route_lista_testes')
+const responderPerguntaRouter = require('./js/route_responder_pergunta')
 
 const PORT = 8080;
 const PORTeste = 8081;
@@ -42,6 +43,7 @@ app.use("/cadastrodetestes", cadastroTesteRouter);
 app.use("/cadastrodeperguntas", cadastroPerguntaRouter);
 app.use("/listadetestes", listaTesteRouter);
 appTeste.use("/", teste)
+app.use("/responderteste", responderPerguntaRouter);
 
 //iniciando o servidor
 app.listen(PORT, function () {

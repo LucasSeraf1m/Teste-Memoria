@@ -19,9 +19,9 @@ async function getTeste() {
 
             var botao = document.createElement("input")
             botao.type = "button"
-            botao.setAttribute("value", "Editar Teste")
+            botao.setAttribute("value", "Responder Teste")
             //testando funcao
-            botao.setAttribute("onclick", "window.location='http://localhost:8080/login/cadastrodetestes/"+teste.title+"/cadastrodeperguntas'")
+            botao.setAttribute("onclick", "window.location='http://localhost:8080/listadetestes/"+teste.title+"/responderteste'")
 
             htmlTeste.appendChild(txtTeste)
 

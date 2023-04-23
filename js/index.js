@@ -30,5 +30,8 @@ router.get(/.*cadastrodeperguntas$/, function (req, res) {
 router.get("/listadetestes", function (req, res) {
     res.sendFile('./html/lista_testes.html', { root: '.' });
 });
+router.get(/.*responderteste$/, function (req, res) {
+    res.sendFile('./html/responder_pergunta.html', { root: '.' });
+});
 
 module.exports = router;
