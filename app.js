@@ -12,6 +12,7 @@ const loginRouter = require("./js/route_login_cadastro");
 const cadastroTesteRouter = require("./js/route_cadastro_teste")
 const cadastroPerguntaRouter = require("./js/route_cadastro_pergunta")
 const teste = require('./js/route_testes')
+const listaTesteRouter = require('./js/route_lista_testes')
 
 const PORT = 8080;
 const PORTeste = 8081;
@@ -39,6 +40,7 @@ app.use("/auth", authRouter);
 app.use("/login", loginRouter);
 app.use("/cadastrodetestes", cadastroTesteRouter);
 app.use("/cadastrodeperguntas", cadastroPerguntaRouter);
+app.use("/listadetestes", listaTesteRouter);
 appTeste.use("/", teste)
 
 //iniciando o servidor
