@@ -41,6 +41,8 @@ async function getPerguntas() {
     }
 
     pergunta = shuffleArray(pergunta);
+
+    setPergunta();
 }
 
 getPerguntas();
@@ -61,4 +63,4 @@ function setPergunta() {
     titulo.appendChild(perguntaJson);
 }
 
-setPergunta();
+
