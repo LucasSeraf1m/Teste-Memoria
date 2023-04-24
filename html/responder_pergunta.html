@@ -10,9 +10,10 @@
     <h1 id="nome">Teste: </h1>
     <section id="sec">
         <form action="">
-            <h2 id="pergunta">Pergunta: </h2>
+            <h2 id="pergunta"></h2>
+            <!-- <input type="text" id="pergunta" value="Pergunta:" disabled> -->
             <p>Selecione a resposta correta: </p>
-            <input type="radio" id="opcaoA" name="opcao" value="">
+            <input class="opcaoA" type="radio" id="opcaoA" name="opcao" value="">
             <label for="opcaoA">a)</label>
             <input type="radio" id="opcaoB" name="opcao" value="">
             <label for="opcaoB">b)</label>
@@ -23,7 +24,7 @@
             <input type="radio" id="opcaoE" name="opcao" value="">
             <label for="opcaoE">e)</label>
         </form>
-        <input type="button" value="Próxima Pergunta" onclick="">
+        <input type="button" value="Próxima Pergunta" onclick="getReposta(); setPergunta()">
         <input type="button" value="Parar Teste" onclick="">
     </section>
     <script src="../../funcoes/funcoes_responder_perguntas.js"></script>

@@ -10,6 +10,7 @@ const h = document.getElementById("nome")
 h.appendChild(nome)
 
 var pergunta = [];
+let indice=0;
 
 async function getPerguntas() {
     try {
@@ -32,6 +33,7 @@ async function getPerguntas() {
                             "resposta": teste.perguntas[i].resposta
                         }
                         pergunta.push(test);
+                        indice = i;
                     }
                 }     
             }
@@ -46,6 +48,7 @@ async function getPerguntas() {
 }
 
 getPerguntas();
+// setPergunta()
 
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -57,10 +60,88 @@ function shuffleArray(array) {
     return array
 }
 
+// function limparCampos() {
+//      const titulo = document.getElementById("pergunta");
+//      const perguntaJson = document.createTextNode("");
+//      titulo.setAttribute("value", "") ;
+// }
+
+// limparCampos()
+
+
 function setPergunta() {
-    const titulo = document.getElementById("pergunta");
-    const perguntaJson = document.createTextNode(pergunta[0].tituloDaPergunta);
-    titulo.appendChild(perguntaJson);
+    if(indice >=0) {
+        const titulo = document.getElementById("pergunta");
+        const inputs = document.querySelectorAll('input');
+        const labels = document.querySelectorAll('label');
+    
+        let j=0 
+        for(let label of labels) {    
+            switch (j) {
+                case 0:
+                    label.innerHTML= pergunta[indice].opcaoA
+                break;
+                case 1:
+                    label.innerHTML= pergunta[indice].opcaoB
+                break;
+                case 2:
+                    label.innerHTML= pergunta[indice].opcaoC
+                break;
+                case 3:
+                    label.innerHTML= pergunta[indice].opcaoD
+                break;
+                case 4:
+                    label.innerHTML= pergunta[indice].opcaoE
+                break;
+                default:
+                //Instruções executadas quando o valor da expressão é diferente de todos os cases
+                break;
+            } 
+            j++
+        }
+
+        j=0 
+        for(let input of inputs) {    
+            switch (j) {
+                case 0:
+                    input.setAttribute('value', pergunta[indice].opcaoA)
+                break;
+                case 1:
+                    input.setAttribute('value', pergunta[indice].opcaoB)
+                break;
+                case 2:
+                    input.setAttribute('value', pergunta[indice].opcaoC)
+                break;
+                case 3:
+                    input.setAttribute('value', pergunta[indice].opcaoD)
+                break;
+                case 4:
+                    input.setAttribute('value', pergunta[indice].opcaoE)
+                break;
+                default:
+                //Instruções executadas quando o valor da expressão é diferente de todos os cases
+                break;
+            } 
+            j++
+        }
+        // limparCampos()
+        // titulo.setAttribute("value", "Pergunta: " + pergunta[indice].tituloDaPergunta)
+        titulo.innerText = pergunta[indice].tituloDaPergunta
+    
+        indice--
+    }
 }
 
+function getReposta() {
+    var resposta = document.querySelector('input[name="opcao"]:checked').value
+    console.log(indice);
+    console.log(pergunta[indice].resposta);
+    console.log(resposta);
+    if(resposta == pergunta[indice].resposta) {
+        console.log("certou");
+    } else {
+        console.log("Errou");
 
+    }
+    setPergunta()
+}
