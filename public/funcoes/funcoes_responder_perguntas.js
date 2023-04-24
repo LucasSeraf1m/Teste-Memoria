@@ -11,7 +11,6 @@ h.appendChild(nome)
 
 var pergunta = [];
 
-
 async function getPerguntas() {
     try {
         const response = await fetch('http://localhost:8081')
@@ -53,7 +52,13 @@ function shuffleArray(array) {
         array[i] = array[j];
         array[j] = temp;
     }
-
     return array
 }
 
+function setPergunta() {
+    const titulo = document.getElementById("pergunta");
+    const perguntaJson = document.createTextNode(pergunta[0].tituloDaPergunta);
+    titulo.appendChild(perguntaJson);
+}
+
+setPergunta();
