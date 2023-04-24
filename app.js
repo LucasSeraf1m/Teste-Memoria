@@ -62,5 +62,5 @@ mongoose
     useUnifiedTopology: true, // objeto que contém opções usadas para configurar a conexão 
   })
   .then(() => {
-    console.log("Sucesso na conexão com MongoDB!");
+    console.log("🍃 Sucesso na conexão com MongoDB!");
   });

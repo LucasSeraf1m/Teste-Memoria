@@ -1,9 +1,9 @@
-// pegar titulo dp teste passado na url
+// pegar titulo do teste passado na url
 const url = window.location.pathname
 const parts = url.split('/')
 const nomeTeste = parts[3]
 
-// Pegar elemneto h1 para adiiconar o nome do teste no html
+// Pegar elemento h1 para adiciconar o nome do teste no html
 const nome = document.createTextNode(nomeTeste)
 const h = document.getElementById("nome")
 
@@ -246,10 +246,10 @@ function addPergunta(b){
 function salvarPergunta(){
     let listPerguntas = [] // lista de perguntas
 
-    //função para pergar valor da html e adicionar na lista, formato json
+    //função para pegar valor da html e adicionar na lista, formato json
     for(let i=1; i<=numPerguntaNova; i++) { //para cada pergunta criada faça
         var perguntas = document.querySelectorAll(".op"+i)
-        const test =  {// salvar os valores nos campos coerentes
+        const test =  { // salvar os valores nos campos coerentes
             "tituloDaPergunta": perguntas[0].value,
             "opcaoA": perguntas[1].value,
             "opcaoB": perguntas[2].value,
