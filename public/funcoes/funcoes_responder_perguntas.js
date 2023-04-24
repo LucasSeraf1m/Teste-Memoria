@@ -40,6 +40,8 @@ async function getPerguntas() {
     }catch(erro) {
         console.log(erro);
     }
+
+    pergunta = shuffleArray(pergunta);
 }
 
 getPerguntas();
@@ -50,8 +52,8 @@ function shuffleArray(array) {
         var temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-        console.log(array)
     }
+
+    return array
 }
 
-shuffleArray(pergunta);
