@@ -11,6 +11,8 @@ h.appendChild(nome)
 
 var pergunta = [];
 let indice=0;
+let acertos=0;
+let respondidas = 0
 
 async function getPerguntas() {
     try {
@@ -127,21 +129,59 @@ function setPergunta() {
         // limparCampos()
         // titulo.setAttribute("value", "Pergunta: " + pergunta[indice].tituloDaPergunta)
         titulo.innerText = pergunta[indice].tituloDaPergunta
-    
-        indice--
     }
 }
 
 function getReposta() {
-    var resposta = document.querySelector('input[name="opcao"]:checked').value
-    console.log(indice);
-    console.log(pergunta[indice].resposta);
-    console.log(resposta);
-    if(resposta == pergunta[indice].resposta) {
-        console.log("certou");
-    } else {
-        console.log("Errou");
+    if(indice >= 0) {
+        var resposta = document.querySelector('input[name="opcao"]:checked').value
+        console.log(indice);
+        console.log(pergunta[indice].resposta);
+        console.log(resposta);
+        if(resposta == pergunta[indice].resposta) {
+            console.log("certou");
+            acertos++
+        } else {
+            console.log("Errou");
+        }
 
+        indice--
+        setPergunta()
+        respondidas++
+    } else {
+        salvarResult()
     }
-    setPergunta()
+}
+
+function salvarResult() {
+    test = {
+        "teste": nomeTeste,
+        "qtd_perguntas": respondidas,
+        "qtd_acertos": acertos
+    }
+
+    fetch('http://localhost:8081/result')
+    .then(response => response.json())
+    .then(data => {
+
+        // Parse the JSON data into a JavaScript object
+        data = JSON.parse(JSON.stringify(data));
+        data.push(test);
+        
+        // Convert the JavaScript object back to JSON format
+        const newJson = JSON.stringify(data);
+        console.log(newJson)
+
+        // Write the new JSON data back to the file
+        fetch('http://localhost:8081/addResult', {
+        method: 'PUT',
+        body: newJson,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        })
+        .then(response => console.log('Data inserted successfully!'))
+        .catch(error => console.error('Error:', error));
+    }).then()
+    .catch(error => console.error('Error:', error));
 }
