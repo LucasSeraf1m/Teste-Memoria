@@ -1,32 +1,14 @@
-body{
-    background-color: rgb(235,235,235);
+body, header{
     display: flex;
-  justify-content: center;
-}
-
-.conteudo{
-    background-color: #131f2f;
-    width: 99%;
-    text-align: center;
-    border-radius: 30px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.header{
-    display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-.titulo{
-    background-color: #131f2f;
-    color: white;
-    padding: 15px 5px 15px 5px;
-    font-size: 40px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    border-radius: 30px;
+body{
+    background-color: rgb(235,235,235);
+}
+
+.header{
+    align-items: center;
 }
 
 .logo{
@@ -34,26 +16,52 @@ body{
     margin-right: 10px;
 }
 
-.containerBotoes{
+.conteudo, .titulo, .containerBotoes, button{
+    border-radius: 30px;   
+}
+
+.conteudo, .titulo{
+    background-color: #131f2f;
+}
+
+.conteudo, button{
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo{
+    width: 99%;
+    text-align: center;
+}
+
+.titulo{
+    color: white;
+    padding: 15px 5px 15px 5px;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.titulo, button{
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2.5px;
+}
+
+.containerBotoes, button{
     background-color: white;
+}
+
+.containerBotoes{
     display: flex;
     justify-content: space-around;
-    border-radius: 30px;
 }
 
 button{
-    background-color: white;
     color: #e8a34b;
     width: 23%;
     aspect-ratio: auto 1 / 1;
     margin: 80px 20px 80px 20px;
     font-size: 35px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
-    letter-spacing: 2.5px;
-    border-radius: 30px;
+    font-weight: 600;
     border-style: none;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
