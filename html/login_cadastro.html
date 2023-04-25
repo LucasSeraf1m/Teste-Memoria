@@ -20,17 +20,29 @@
             <div class="containerForms">
                 <form class="form">
                     <h2 class="tituloForm">Login</h2>
-                    <label for="emailInputLogin">Email</label>
+                    <div class="containerEmail">
+                        <img class="emailPng" src="../img/email.png" alt="Email">
+                        <label for="emailInputLogin">Email</label>
+                    </div>
                     <input type="email" id="emailInputLogin" required>
-                    <label for="senhaInputLogin">Senha</label>
+                    <div class="containerSenha"> 
+                        <img class="senhaPng" src="../img/senha.png" alt="Senha">
+                        <label for="senhaInputLogin">Senha</label>
+                    </div>
                     <input type="password" id="senhaInputLogin" required>
                     <button class="btnForms" type="submit" onclick="loginUsuario()">Login</button>
                 </form>
                 <form class="form"> 
                     <h2 class="tituloForm">Cadastro</h2>
-                    <label for="emailInputCadastro">Email</label>
+                    <div class="containerEmail">
+                        <img class="emailPng" src="../img/email.png" alt="Email">
+                        <label for="emailInputCadastro">Email</label>
+                    </div>
                     <input type="email" id="emailInputCadastro" required>
-                    <label for="senhaInputCadastro">Senha</label>
+                    <div class="containerSenha">
+                        <img class="senhaPng" src="../img/senha.png" alt="Senha">
+                        <label for="senhaInputCadastro">Senha</label>
+                    </div>
                     <input type="password" id="senhaInputCadastro" required>
                     <button class="btnForms" type="submit" onclick="cadastroUsuario()">Cadastrar</button>
                 </form>
