@@ -1,10 +1,13 @@
 const fs = require("fs")
 const dados = require('../public/dados/testes.json') 
 const dadosResult = require('../public/dados/resultados.json') 
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const express = require("express");
 
 const router = express.Router();
+router.use(bodyParser.urlencoded({extended: false}))
+router.use(bodyParser.json())
+
 
 router.get('/', (req, res) => {
     res.send(dados)
