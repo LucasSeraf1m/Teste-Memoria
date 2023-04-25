@@ -50,7 +50,6 @@ function setTeste() {
 
         // Parse the JSON data into a JavaScript object
         data = JSON.parse(JSON.stringify(data));
-    
         data.push(test);
 
         // Convert the JavaScript object back to JSON format
