@@ -68,7 +68,7 @@ body{
 /* código específico */
 
 h2{
-    color: #e8a34b;
+    color: #bfbfbf;
     letter-spacing: 1.5px;
     font-size: 35px;
 }
@@ -84,10 +84,11 @@ h1{
     border-radius: 30px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     border-style: none;
-    padding: 25px;
+    padding: 25px 0px 32px;
 }
 
 .tituloForm{
+    color: #e8a34b;
     margin-top: 0px;
     font-size: 35px;
 }

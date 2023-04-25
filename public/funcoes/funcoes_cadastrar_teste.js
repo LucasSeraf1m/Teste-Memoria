@@ -77,7 +77,7 @@ function setTeste() {
 
       var botao = document.createElement("input")
       botao.type = "button"
-      botao.setAttribute("value", "Add Pergunta")
+      botao.setAttribute("value", "Editar Teste")
       botao.setAttribute("onclick", "window.location='http://localhost:8080/login/cadastrodetestes/"+nome+"/cadastrodeperguntas'")
 
       var htmlTeste = document.createElement("h1")
