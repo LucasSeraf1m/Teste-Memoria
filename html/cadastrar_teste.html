@@ -17,13 +17,19 @@
             <h1 class="titulo">Teste de Memória</h1>
         </header>
         <div class="containerConteudo">
-            <form action="http://localhost:8081/add" method="POST">
-                <label for="nometeste">Nome do Teste</label>
-                <input type="text" id="nometeste" required>
-                <input type="submit" value="Enviar" onclick="setTeste()">
-            </form> 
+            <div class="containerForms">
+                <h2 class="tituloForm">Criar Teste</h2>
+                <form action="http://localhost:8081/add" method="POST">
+                    <div class="containerNome">
+                        <img class="lapisPng" src="../img/pencil.png" alt="Lápis">
+                        <label for="nometeste">Nome do Teste:</label>
+                        <input class="inputNomeTeste" type="text" id="nometeste" required>
+                    </div>
+                    <input class="btnForms" type="submit" value="Enviar" onclick="setTeste()">
+                </form> 
+            </div>
+            <h2>Testes Criados</h2>
             <section id="sec">
-                <h1>Testes Criados</h1>
             </section>
             <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/'">Voltar</button>
         </div>

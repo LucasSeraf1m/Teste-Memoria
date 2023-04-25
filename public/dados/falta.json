@@ -2,7 +2,7 @@
     {
         "1": "CSS",
         "2": "Confimar input para não estar enviar vazio",
-        "3": "COnfimar reposata correta existente",
+        "3": "Confimar resposta correta existente",
         "4": "Limpar radio button",
         "5": "cadastrar teste, validar titulo do teste existente antes de salvar",
         "6": "tirar console.logs()",
@@ -10,9 +10,9 @@
         "8": "tela lista de resultado",
         "9": "se sobrar tempo, revisar codigo",
         "10": "se sobrar tempo, revisar comentarios",
-        "11": "se sobrar tempo, pagina sobre nos",
+        "11": "quando atualiza a pagina o botao de add pergunta vira editar teste",
         "12": "validar cadastro login sem senha",
         "13": "botão para teste",
-        "14": ""
+        "14": "botão excluir teste"
     }
 ]

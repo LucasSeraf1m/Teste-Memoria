@@ -66,35 +66,42 @@ body{
 
 /* código específico */
 
+.containerForms, .form, input, .btnForms{
+    border-radius: 30px;
+}
+
+.containerForms, .form, label, .containerEmail, .containerSenha{
+    display: flex;
+}
+
+.form, .btnForms{
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
 .containerForms{
     background-color: white;
-    border-radius: 30px;
-    display: flex;
     justify-content: space-around;
-    
+}
+
+.form, input, .btnForms{
+    border-style: none;
 }
 
 .form{
     background-color: white;
     margin: 40px 20px 40px 20px;
-    display: flex;
     flex-direction: column;
     padding: 50px;
     font-size: 25px;
-    font-family: 'Roboto', sans-serif;
     font-weight: 800;
     letter-spacing: 2.5px;
-    border-radius: 30px;
-    border-style: none;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 input{
     width: 300px;
     margin: 0px 10px 10px 10px;
     padding: 10px;
-    border-radius: 30px;
-    border-style: none;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -105,58 +112,31 @@ h2{
 }
 
 label{
-    display: flex;
-    justify-content: center;
     margin: 10px;
     font-size: 20px;
     font-weight: 500;
 }
 
-.containerEmail{
-    display: flex;
+.containerEmail, .containerSenha{
     align-items: flex-end;
 }
 
-.containerSenha{
-    display: flex;
-    align-items: flex-end;
-}
-
-.emailPng{
-    width: auto;
-    height: 20px;
+.emailPng, .senhaPng{
     margin: 10px 0 10px 22px;
+} 
+
+.emailPng, .senhaPng{
+    height: 20px;
 }
 
 .senhaPng{
-    width: auto;
     height: 25px;
-    margin: 10px 0 10px 22px;
 }
 
 .btnForms{
     margin-top: 15px;
     padding: 10px;
-    border-radius: 30px;
     font-size: 18px;
-    border-style: none;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-}
-
-.btnVoltar{
-    width: 100%;
-    padding: 20px;
-    color: #e8a34b;
-    border-radius: 30px;
-    border-style: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px;
     font-weight: 600;
     letter-spacing: 1.5px;
     transition: all 0.3s ease 0s;
