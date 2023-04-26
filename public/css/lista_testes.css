@@ -68,6 +68,11 @@ body{
 
 /* código específico */
 
+h1{
+    font-weight: 500;
+    padding: 0 10px;
+}
+
 h2{
     margin: 0px;
 }
@@ -76,13 +81,13 @@ h2{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 30px;
+    margin: 25px;
 }
 
 .tituloConteudo{
     color: #e8a34b;
     font-size: 35px;
-    padding-top: 30px;
+    padding-top: 25px;
     letter-spacing: 1.5px;
 }
 
@@ -102,6 +107,8 @@ input{
     font-size: 15px;
     font-weight: 600;
     white-space: normal;
+    width:100%;
+    display: block;
 }
 
 article{
@@ -111,6 +118,7 @@ article{
     border-radius: 20px;
     border-width: 2px;
     margin: 10px;
+    font-weight: 500;
 }
 
 article:hover{

@@ -75,6 +75,7 @@ h2{
 
 h1{
     font-weight: 500;
+    padding: 0 10px;
 }
 
 .containerConteudo{
@@ -85,18 +86,19 @@ h1{
     border-radius: 30px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     border-style: none;
-    padding: 25px 0px 32px;
+    padding: 25px 0px 35px;
 }
 
 .tituloForm{
     color: #e8a34b;
-    margin-top: 0px;
+    margin: 0px 0px 20px;
     font-size: 35px;
 }
 
 label{
     margin: 10px;
     font-size: 20px;
+    pointer-events: none;
 }
 
 .lapisPng{
@@ -110,6 +112,7 @@ label{
     border-style: none;
     border-radius: 30px;
     font-weight: 500;
+    display: initial;
 }
 
 .inputNomeTeste:hover{
@@ -127,6 +130,7 @@ label{
     font-weight: 600;
     letter-spacing: 1.5px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    display: initial;
 }
 
 .btnForms:hover{
@@ -140,7 +144,8 @@ label{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 30px;
+    margin: 25px;
+    margin-bottom: 35px;
 }
 
 .containerTeste{
@@ -149,7 +154,6 @@ label{
 
 input{
     box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.1);
-    width: 130px;
     border-radius: 30px;
     border-style: none;
     padding: 10px;
@@ -158,6 +162,8 @@ input{
     letter-spacing: 1.5px;
     font-size: 15px;
     font-weight: 600;
+    width:100%;
+    display: block;
 }
 
 article{
@@ -182,4 +188,8 @@ article input:hover{
     background-color: #e8a34b;
     box-shadow: 0px 6px 13px #c68c41;
     color: #fff;
+}
+
+.testeCriado{
+    margin-top: 35px;
 }
