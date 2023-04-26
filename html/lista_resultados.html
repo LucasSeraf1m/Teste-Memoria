@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/lista_resultados.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Listar Resultado</title>
 </head>
 <body>
-    <h1>Lista de resultados</h1>
-
-    <section id="results">
-        
-    </section>
-
-
+    <div class="conteudo">
+        <header class="header">
+            <img class="logo" src="../../../img/logo.png" alt="Cérebro">
+            <h1 class="titulo">Teste de Memória</h1>
+        </header>
+        <div class="containerConteudo">
+            <h1>Lista de resultados</h1>
+            <section id="results">
+            </section>
+            <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/listadetestes'">Voltar</button>
+        </div>
+    </div>
     <script type="module" src="../funcoes/funcao_listarResultado.js""></script>
 </body>
 </html>
