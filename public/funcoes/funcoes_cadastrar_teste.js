@@ -45,31 +45,27 @@ function setTeste() {
     
     // Read the JSON file
     fetch('http://localhost:8081/')
-      .then(response => response.json())
-      .then(data => {
-        var ex;
-        // Parse the JSON data into a JavaScript object
-        data = JSON.parse(JSON.stringify(data));
-         
-        
-        for(let teste of data){
-          if(teste.title != test.title){
-            ex = true;
-          }else{
-            ex = false;
-            break;
-          }
+    .then(response => response.json())
+    .then(data => {
+      var ex;
+      // Parse the JSON data into a JavaScript object
+      data = JSON.parse(JSON.stringify(data));
+      
+      for(let teste of data){
+        if(teste.title != test.title){
+          ex = true;
+        }else{
+          ex = false;
+          break;
         }
-        
-        if(ex){
-          data.push(test);
-        }else {
-          alert("Teste ja esta salvo")
-        }
-        // Convert the JavaScript object back to JSON format
+      }
+      
+      if(ex){
+        data.push(test);
+        addHTML(nome)
         const newJson = JSON.stringify(data);
-    
-        // Write the new JSON data back to the file
+        numTest++;
+
         fetch('http://localhost:8081/add', {
           method: 'PUT',
           body: newJson,
@@ -77,28 +73,32 @@ function setTeste() {
             'Content-Type': 'application/json'
           }
         })
-          .then(response => console.log('Data inserted successfully!'))
-          .catch(error => console.error('Error:', error));
-        })
-    .catch(error => console.error('Error:', error));
+        .then(response => console.log('Data inserted successfully!'))
+        .catch(error => console.error('Error:', error));
+      }else {
+        alert("Teste ja esta salvo")
+      }
       
-      numTest++;
-
-      //cria o html com o nome do teste recem criado
-      var art = document.createElement("article")
-      art.setAttribute("id", "teste"+numTest)
-
-      var botao = document.createElement("input")
-      botao.type = "button"
-      botao.setAttribute("value", "Editar Teste")
-      botao.setAttribute("onclick", "window.location='http://localhost:8080/login/cadastrodetestes/"+nome+"/cadastrodeperguntas'")
-
-      var htmlTeste = document.createElement("h1")
-      var txtTeste = document.createTextNode(nome)
-      htmlTeste.appendChild(txtTeste)
-
-      art.appendChild(htmlTeste)
-      art.appendChild(botao)
-      sec.appendChild(art)
+      }).catch(error => console.error('Error:', error));
 }
+
+function addHTML(nome) {
+  //cria o html com o nome do teste recem criado
+  var art = document.createElement("article")
+  art.setAttribute("id", "teste"+numTest)
+
+  var botao = document.createElement("input")
+  botao.type = "button"
+  botao.setAttribute("value", "Editar Teste")
+  botao.setAttribute("onclick", "window.location='http://localhost:8080/login/cadastrodetestes/"+nome+"/cadastrodeperguntas'")
+
+  var htmlTeste = document.createElement("h1")
+  var txtTeste = document.createTextNode(nome)
+  htmlTeste.appendChild(txtTeste)
+
+  art.appendChild(htmlTeste)
+  art.appendChild(botao)
+  sec.appendChild(art)
+}
+
 getTeste()
