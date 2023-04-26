@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/cadastrar_pergunta.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Cadastrar Perguntas</title>
 </head>
 <body>
-    <h1 id="nome">Teste: </h1>
-    <section id="sec">
-        <h1>Perguntas</h1>
-        
-    </section>
-    <input type="button" value="Add Pergunta" onclick="addPergunta(false)">
-    <input type="button" value="Salvar Teste" onclick="salvarPergunta()">
+    <div class="conteudo">
+        <header class="header">
+            <img class="logo" src="../../../img/logo.png" alt="Cérebro">
+            <h1 class="titulo">Teste de Memória</h1>
+        </header>
+        <div class="containerConteudo">
+            <div class="containerTopo">
+                <h2 id="nome">Teste: </h2>
+                <input class="btn" type="button" value="Add Pergunta" onclick="addPergunta(false)">
+            </div>
+            <section id="sec">
+            </section>
+            <div class="containerBtn">
+                <input class="btn" type="button" value="Salvar Teste" onclick="salvarPergunta()">
+            </div>
+            <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
+        </div>
+    </div>
     <script src="../../../funcoes/funcoes_cadastrar_perguntas.js"></script>
 </body>
 </html>

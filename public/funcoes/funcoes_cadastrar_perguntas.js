@@ -70,6 +70,7 @@ function addPergunta(b){
       const textPergunta = document.createTextNode("Pergunta "+numPergunta)
       txtPergunta.setAttribute("for", "titlePergunta")
       const opA = document.createElement("input")
+      txtPergunta.setAttribute("class", "labelPergunta") //lucas
   
       opA.type = "text"
       opA.setAttribute("id", "opA")
@@ -117,6 +118,7 @@ function addPergunta(b){
       const txtopCerta = document.createElement("label")
       const textopCerta = document.createTextNode("Resposta Correta")
       txtopCerta.setAttribute("for", "opCerta")
+      txtopCerta.setAttribute("class", "labelRespostaCerta") //lucas
   
 
       titlePergunta.setAttribute("value", titulo) 
@@ -167,6 +169,7 @@ function addPergunta(b){
       const textPergunta = document.createTextNode("Pergunta "+numPergunta)
       txtPergunta.setAttribute("for", "titlePergunta")
       const opA = document.createElement("input")
+      txtPergunta.setAttribute("class", "labelPergunta") //lucas
   
       opA.type = "text"
       opA.setAttribute("id", "opA"+numPerguntaNova)
@@ -214,6 +217,7 @@ function addPergunta(b){
       const txtopCerta = document.createElement("label")
       const textopCerta = document.createTextNode("Resposta Correta")
       txtopCerta.setAttribute("for", "opCerta"+numPerguntaNova)
+      txtopCerta.setAttribute("class", "labelRespostaCerta") //lucas
 
       txtPergunta.appendChild(textPergunta)
       txtopA.appendChild(textopA)
