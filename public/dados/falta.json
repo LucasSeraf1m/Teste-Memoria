@@ -1,6 +1,8 @@
 [
     {
         "1": "quando tu salva uma pergunta ele volta para a tela",
+        "2": "quando edita uma pergunta da erro",
+        "3": "ponto de interrogação não aparece",
         "4": "limpar radio button",
         "6": "tirar console.logs()",
         "7": "tela finalização do teste",

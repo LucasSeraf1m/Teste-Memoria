@@ -4,29 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/responder_pergunta.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Responder Perguntas</title>
 </head>
 <body>
-    <h1 id="nome">Teste: </h1>
-    <section id="sec">
-        <form action="">
-            <h2 id="pergunta"></h2>
-            <!-- <input type="text" id="pergunta" value="Pergunta:" disabled> -->
-            <p>Selecione a resposta correta: </p>
-            <input class="opcaoA" type="radio" id="opcaoA" name="opcao" value="">
-            <label for="opcaoA">a)</label>
-            <input type="radio" id="opcaoB" name="opcao" value="">
-            <label for="opcaoB">b)</label>
-            <input type="radio" id="opcaoC" name="opcao" value="">
-            <label for="opcaoC">c)</label>
-            <input type="radio" id="opcaoD" name="opcao" value="">
-            <label for="opcaoD">d)</label>
-            <input type="radio" id="opcaoE" name="opcao" value="">
-            <label for="opcaoE">e)</label>
-        </form>
-        <input type="button" value="Próxima Pergunta" onclick="getReposta()">
-        <input type="button" value="Parar Teste" onclick="">
-    </section>
+    <div class="conteudo">
+        <header class="header">
+            <img class="logo" src="../../../img/logo.png" alt="Cérebro">
+            <h1 class="titulo">Teste de Memória</h1>
+        </header>
+        <div class="containerConteudo">
+            <h2 id="nome">Teste: </h2>
+            <section id="sec">
+                <form action="">
+                    <h2 id="pergunta"></h2>
+                    <!-- <input type="text" id="pergunta" value="Pergunta:" disabled> -->
+                    <p class="instrucao">Selecione a resposta correta: </p>
+                    <input class="opcaoA" type="radio" id="opcaoA" name="opcao" value="">
+                    <label for="opcaoA">a)</label>
+                    <input type="radio" id="opcaoB" name="opcao" value="">
+                    <label for="opcaoB">b)</label>
+                    <input type="radio" id="opcaoC" name="opcao" value="">
+                    <label for="opcaoC">c)</label>
+                    <input type="radio" id="opcaoD" name="opcao" value="">
+                    <label for="opcaoD">d)</label>
+                    <input type="radio" id="opcaoE" name="opcao" value="">
+                    <label for="opcaoE">e)</label>
+                </form>
+                <div class="containerBotoes">
+                    <input class="btn" type="button" value="Próxima Pergunta" onclick="getReposta()">
+                    <input class="btn" type="button" value="Parar Teste" onclick="">
+                </div>
+            </section>
+            <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/listadetestes'">Cancelar</button>
+        </div>
+    </div>
     <script src="../../funcoes/funcoes_responder_perguntas.js"></script>
 </body>
 </html>
