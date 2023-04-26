@@ -245,63 +245,83 @@ function addPergunta(b){
 
 function salvarPergunta(){
     let listPerguntas = [] // lista de perguntas
-
+    let respostaExistente=false;
     //função para pegar valor da html e adicionar na lista, formato json
     for(let i=1; i<=numPerguntaNova; i++) { //para cada pergunta criada faça
         var perguntas = document.querySelectorAll(".op"+i)
-        const test =  { // salvar os valores nos campos coerentes
-            "tituloDaPergunta": perguntas[0].value,
-            "opcaoA": perguntas[1].value,
-            "opcaoB": perguntas[2].value,
-            "opcaoC": perguntas[3].value,
-            "opcaoD": perguntas[4].value,
-            "opcaoE": perguntas[5].value,
-            "resposta": perguntas[6].value
-        }
+        let test = {}
+        respostaExistente=false;
 
-        listPerguntas.push(test) // adiciona na lista
-    }
-
-    
-    fetch('http://localhost:8081/')
-    .then(response => response.json())
-    .then(data => {
-
-        // Parse the JSON data into a JavaScript object
-        data = JSON.parse(JSON.stringify(data));
-        // console.log(teste)
-        for(let teste of data) {
-            if(teste.title == nomeTeste) {
-                if(teste.perguntas == "") {
-                    teste.perguntas = listPerguntas
-                } else {
-                    for(let i=0; i<teste.perguntas.length; i++) {
-                        listPerguntas.push(teste.perguntas[i])
+        for(let j=0; j<6;j++) {
+            if(perguntas[j].value=="") {
+                //
+            } else {
+                if(perguntas[j].value == perguntas[6].value) {
+                    // respostaExistente==true;
+                    test =  { // salvar os valores nos campos coerentes
+                        "tituloDaPergunta": perguntas[0].value,
+                        "opcaoA": perguntas[1].value,
+                        "opcaoB": perguntas[2].value,
+                        "opcaoC": perguntas[3].value,
+                        "opcaoD": perguntas[4].value,
+                        "opcaoE": perguntas[5].value,
+                        "resposta": perguntas[6].value
                     }
-
-                    teste.perguntas = listPerguntas
+                    respostaExistente=true
+                    
                 }
             }
         }
 
-        // Convert the JavaScript object back to JSON format
-        const newJson = JSON.stringify(data);
-
-        // Write the new JSON data back to the file
-        fetch('http://localhost:8081/add', {
-        method: 'PUT',
-        body: newJson,
-        headers: {
-            'Content-Type': 'application/json'
+        if(respostaExistente==true) {
+            listPerguntas.push(test) // adiciona na lista
         }
-        })
-        .then(response => console.log('Data inserted successfully!'))
-        .catch(error => console.error('Error:', error));
-    }).then()
-    .catch(error => console.error('Error:', error));
 
-    alert("Teste Salvo com Sucesso")
-    window.location='http://localhost:8080/login/cadastrodetestes'
+    }
+
+    if(respostaExistente) {
+        fetch('http://localhost:8081/')
+        .then(response => response.json())
+        .then(data => {
+    
+            // Parse the JSON data into a JavaScript object
+            data = JSON.parse(JSON.stringify(data));
+            // console.log(teste)
+            for(let teste of data) {
+                if(teste.title == nomeTeste) {
+                    if(teste.perguntas == "") {
+                        teste.perguntas = listPerguntas
+                    } else {
+                        for(let i=0; i<teste.perguntas.length; i++) {
+                            listPerguntas.push(teste.perguntas[i])
+                        }
+    
+                        teste.perguntas = listPerguntas
+                    }
+                }
+            }
+    
+            // Convert the JavaScript object back to JSON format
+            const newJson = JSON.stringify(data);
+            alert("Teste Salvo com Sucesso")
+            // Write the new JSON data back to the file
+            fetch('http://localhost:8081/add', {
+                method: 'PUT',
+                body: newJson,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+                })
+                .then(response => alert("Teste Salvo com Sucesso"))
+                .catch(error => console.error('Error:', error));
+        }).then()
+        .catch(error => console.error('Error:', error));
+    
+        
+        window.location='http://localhost:8080/login/cadastrodetestes'
+    } else {
+        alert("Dados Incorretos")
+    }
 }   
 
 getPerguntas()

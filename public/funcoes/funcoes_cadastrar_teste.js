@@ -47,11 +47,25 @@ function setTeste() {
     fetch('http://localhost:8081/')
       .then(response => response.json())
       .then(data => {
-
+        var ex;
         // Parse the JSON data into a JavaScript object
         data = JSON.parse(JSON.stringify(data));
-        data.push(test);
-
+         
+        
+        for(let teste of data){
+          if(teste.title != test.title){
+            ex = true;
+          }else{
+            ex = false;
+            break;
+          }
+        }
+        
+        if(ex){
+          data.push(test);
+        }else {
+          alert("Teste ja esta salvo")
+        }
         // Convert the JavaScript object back to JSON format
         const newJson = JSON.stringify(data);
     
