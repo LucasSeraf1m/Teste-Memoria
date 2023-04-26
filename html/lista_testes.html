@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/lista_testes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Lista de Testes</title>
 </head>
 <body>
-    <h1>Lista de Testes</h1>
-    <section id="sec">
-
-    </section>
-    <button type="button" onclick="window.location = 'http://localhost:8080'">Voltar</button>
+    <div class="conteudo">
+        <header class="header">
+            <img class="logo" src="../img/logo.png" alt="Cérebro">
+            <h1 class="titulo">Teste de Memória</h1>
+        </header>
+        <div class="containerConteudo">
+            <h2 class="tituloConteudo">Lista de Testes</h2>
+            <div class="containerTestes">
+                <section id="sec"></section>
+                <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080'">Voltar</button>
+            </div>
+        </div>
+    </div>
     <script src="../funcoes/funcoes_lista_testes.js"></script>
 </body>
 </html>
