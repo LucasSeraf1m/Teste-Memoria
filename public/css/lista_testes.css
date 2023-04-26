@@ -5,6 +5,7 @@ body{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .conteudo{
@@ -68,72 +69,7 @@ body{
 /* código específico */
 
 h2{
-    color: #838383;
-    letter-spacing: 1.5px;
-    font-size: 35px;
-}
-
-h1{
-    font-weight: 500;
-}
-
-.containerConteudo{
-    font-family: 'Roboto', sans-serif;
-}
-
-.containerForms{
-    border-radius: 30px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    border-style: none;
-    padding: 25px 0px 32px;
-}
-
-.tituloForm{
-    color: #e8a34b;
-    margin-top: 0px;
-    font-size: 35px;
-}
-
-label{
-    margin: 10px;
-    font-size: 20px;
-}
-
-.lapisPng{
-    height: 20px;
-}
-
-.inputNomeTeste{
-    width: 300px;
-    margin-bottom: 10px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    border-style: none;
-    border-radius: 30px;
-    font-weight: 500;
-}
-
-.inputNomeTeste:hover{
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    cursor: text;
-    color: black;
-}
-
-.btnForms{
-    width: 515px;
-    padding: 10px;
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.btnForms:hover{
-    background-color: #e8a34b;
-    transform: translateY(-7px);
-    box-shadow: 0px 15px 20px #c68c41;
-    color: #fff;
+    margin: 0px;
 }
 
 #sec{
@@ -143,6 +79,13 @@ label{
     margin: 30px;
 }
 
+.tituloConteudo{
+    color: #e8a34b;
+    font-size: 35px;
+    padding-top: 30px;
+    letter-spacing: 1.5px;
+}
+
 .containerTeste{
     margin: 10px;
 }
@@ -150,7 +93,7 @@ label{
 input{
     box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.1);
     width: 130px;
-    border-radius: 30px;
+    border-radius: 18px;
     border-style: none;
     padding: 10px;
     transition: all 0.3s ease 0s;
@@ -158,6 +101,7 @@ input{
     letter-spacing: 1.5px;
     font-size: 15px;
     font-weight: 600;
+    white-space: normal;
 }
 
 article{
