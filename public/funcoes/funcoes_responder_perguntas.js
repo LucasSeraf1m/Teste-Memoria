@@ -129,6 +129,10 @@ function setPergunta() {
         // limparCampos()
         // titulo.setAttribute("value", "Pergunta: " + pergunta[indice].tituloDaPergunta)
         titulo.innerText = pergunta[indice].tituloDaPergunta
+    } else {
+        console.log("dde")
+        const btnProx = document.getElementById('prox')
+        btnProx.setAttribute('value', "Encerrar teste")
     }
 }
 
@@ -170,8 +174,7 @@ function salvarResult() {
         
         // Convert the JavaScript object back to JSON format
         const newJson = JSON.stringify(data);
-        console.log(newJson)
-
+        
         // Write the new JSON data back to the file
         fetch('http://localhost:8081/addResult', {
         method: 'PUT',
@@ -182,6 +185,8 @@ function salvarResult() {
         })
         .then(response => console.log('Data inserted successfully!'))
         .catch(error => console.error('Error:', error));
+
+        window.location = 'http://localhost:8080/listadetestes';
     }).then()
     .catch(error => console.error('Error:', error));
 }
