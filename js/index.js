@@ -34,4 +34,8 @@ router.get(/.*responderteste$/, function (req, res) {
     res.sendFile('./html/responder_pergunta.html', { root: '.' });
 });
 
+router.get("/resultados", (req, res) => {
+    res.sendFile('./html/lista_resultados.html', { root: '.' });
+})
+
 module.exports = router;
