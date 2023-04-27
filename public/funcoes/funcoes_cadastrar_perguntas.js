@@ -295,7 +295,7 @@ function salvarPergunta(){
                 }
             }
         }
-        
+
         listPerguntas.push(test)
     }
 
@@ -364,7 +364,7 @@ function salvarPergunta(){
         .catch(error => console.error('Error:', error));
     
         
-        // window.location='http://localhost:8080/login/cadastrodetestes'
+        window.location='http://localhost:8080/login/cadastrodetestes'
     } else {
         alert("Dados Incorretos")
     }
