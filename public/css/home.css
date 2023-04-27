@@ -75,3 +75,27 @@ button:hover {
     box-shadow: 0px 15px 20px #c68c41;
     transform: translateY(-7px);
 }
+
+button:hover .hoverImg{
+    display: inline;
+}
+
+button:hover .imgBtn{
+    display: none;
+}
+
+.hoverImg{
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+img{
+    width: 40%;
+    padding: 10px;
+}
+
+p{
+    margin: 0;
+    padding: 10px;
+}

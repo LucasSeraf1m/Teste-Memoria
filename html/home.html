@@ -18,8 +18,20 @@
             <h1 class="titulo">Teste de Memória</h1>
         </header>
         <section class="containerBotoes">
-            <button onclick="window.location = 'http://localhost:8080/login'">Cadastrar teste</button>
-            <button onclick="window.location = 'http://localhost:8080/listadetestes'">Lista de testes</button>
+            <button onclick="window.location = 'http://localhost:8080/login'"> 
+                <div class="containerBtn">
+                    <p>Cadastrar teste </p> 
+                    <img class="imgBtn" src="../img/addTeste.png" alt="Adicionar teste">
+                    <img class="hoverImg" src="../img/addTesteBranco.png" alt="Adicionar teste">
+                </div>
+            </button>
+            <button onclick="window.location = 'http://localhost:8080/listadetestes'">
+                <div class="containerBtn">
+                    <p>Responder teste</p>
+                    <img class="imgBtn" src="../img/listaTeste.png" alt="Adicionar teste">
+                    <img class="hoverImg" src="../img/listaTesteBranco.png" alt="Adicionar teste"> 
+                </div>
+            </button>
             <button onclick="window.location = 'http://localhost:8080/resultados'">Lista de resultados</button>
         </section>
     </div>

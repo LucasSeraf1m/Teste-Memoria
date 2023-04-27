@@ -1,6 +1,6 @@
 export default function resultado(indice, result) {
     return `
-        <div id="result${indice}">
+        <div class="containerResultado "id="result${indice}">
             <h2>${result.teste}</h2>
             <h3>Quantidade de perguntas: </h3>
             <p>${result.qtd_perguntas}</p>
