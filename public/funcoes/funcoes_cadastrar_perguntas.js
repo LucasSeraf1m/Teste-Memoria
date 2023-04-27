@@ -1,15 +1,22 @@
 // pegar titulo do teste passado na url
 const url = window.location.pathname
 const parts = url.split('/')
-let nomeTeste = parts[3]
+let nomeTesteVet = parts[3]
+let nomeTeste = nomeTesteVet
 
 // URL não aceita espaço, troca espaço por %20, if para trocar por espaço
-if(nomeTeste.includes('%20')) {
-    let partes = nomeTeste.split('%20')
+if(nomeTesteVet.includes('%20')) {
+    let partes = nomeTesteVet.split('%20')
+    console.log(partes);
 
     nomeTeste=""
-    for(let par of partes) {
-        nomeTeste += par + " "
+    for(let i=0; i<partes.length; i++) {
+        // console.log(nomeTesteVet[i]);
+        if((partes.length-1) == i) {
+            nomeTeste += partes[i]
+        } else {
+            nomeTeste += partes[i] + " "
+        }
     }
 }
 
