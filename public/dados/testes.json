@@ -112,7 +112,6 @@
     "title": "port",
     "perguntas": [
       {
-<<<<<<< HEAD
         "tituloDaPergunta": "1",
         "opcaoA": "1",
         "opcaoB": "1",
@@ -182,8 +181,7 @@
         "opcaoC": "5",
         "opcaoD": "5",
         "opcaoE": "5",
-        "resposta": "5"
-=======
+        "resposta": "5",
         "tituloDaPergunta": "234",
         "opcaoA": "2342",
         "opcaoB": "22",
@@ -200,19 +198,6 @@
         "opcaoD": "14514",
         "opcaoE": "145134",
         "resposta": "145"
-<<<<<<< HEAD
-      },
-      {
-        "tituloDaPergunta": "adf",
-        "opcaoA": "adf",
-        "opcaoB": "adsf",
-        "opcaoC": "asdf",
-        "opcaoD": "asg",
-        "opcaoE": "341t3",
-        "resposta": "adf"
-=======
->>>>>>> 60f7a0f0b707e8d6cebe13e3ec4bfa88a2348132
->>>>>>> 20f21e544177aff46923394427c59bb48e04fec9
       }
     ]
   },
