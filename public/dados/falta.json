@@ -6,5 +6,9 @@
         "6": "editar nome do teste",
         "7": "botão para teste",
         "8": "botão excluir teste"
+    } {
+        "2": "MONGO_URI = "mongodb+srv://Admin:admin8258@cluster0.wkcticx.mongodb.net/?retryWrites=true&w=majority"
+        ACCESS_TOKEN_SECRET = "3C6F1E5B34666FBC32ACB040C004CA8730E27ECCD35A86DD7C5D2B0F08D43518"
+        REFRESH_TOKEN_SECRET = "9FAAE04A189E8C25155BB5D58B6B1136B35AF4D844E875D486350C858FDA623D""
     }
 ]
