@@ -28,7 +28,7 @@ async function getPerguntas() {
     try {
         const response = await fetch('http://localhost:8081')
         const data = await response.json();
-        
+
         // pega as perguntas e alternativas do teste selecionado e chama a funcao de perguntas como true
         for(let teste of data) {
             if(teste.title === nomeTeste){ 
@@ -54,7 +54,7 @@ async function getPerguntas() {
         console.log(erro);
     }
 
-    pergunta = shuffleArray(pergunta);
+    pergunta = randomizarPerguntas(pergunta);
 
     setPergunta();
 }
@@ -62,7 +62,7 @@ async function getPerguntas() {
 getPerguntas();
 // setPergunta()
 
-function shuffleArray(array) {
+function randomizarPerguntas(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
@@ -72,16 +72,10 @@ function shuffleArray(array) {
     return array
 }
 
-// function limparCampos() {
-//      const titulo = document.getElementById("pergunta");
-//      const perguntaJson = document.createTextNode("");
-//      titulo.setAttribute("value", "") ;
-// }
-
-// limparCampos()
 
 
 function setPergunta() {
+
     if(indice >=0) {
         const titulo = document.getElementById("pergunta");
         const inputs = document.querySelectorAll('input');
@@ -136,8 +130,6 @@ function setPergunta() {
             } 
             j++
         }
-        // limparCampos()
-        // titulo.setAttribute("value", "Pergunta: " + pergunta[indice].tituloDaPergunta)
         titulo.innerText = pergunta[indice].tituloDaPergunta
     } else {
         console.log("dde")
@@ -147,6 +139,8 @@ function setPergunta() {
 }
 
 function getReposta() {
+
+
     if(indice >= 0) {
         var resposta = document.querySelector('input[name="opcao"]:checked').value
         console.log(indice);
@@ -165,6 +159,8 @@ function getReposta() {
     } else {
         salvarResult()
     }
+    var button = document.querySelector('input[name="opcao"]:checked');
+    button.checked = false;
 }
 
 function salvarResult() {
