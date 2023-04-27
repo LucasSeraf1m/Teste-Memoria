@@ -13,6 +13,8 @@ if(nomeTeste.includes('%20')) {
     }
 }
 
+const inputSalvar = document.getElementById('salvar')
+
 // Pegar elemento h1 para adiciconar o nome do teste no html
 const nome = document.createTextNode(nomeTeste)
 const h = document.getElementById("nome")
@@ -61,6 +63,7 @@ async function getPerguntas() {
 
 // funçao para adicionar novos campos de cadastro de perguntas no html
 function addPergunta(b){
+    
 
     // cria o html das perguntas
     const sec = document.getElementById("sec")
@@ -68,7 +71,6 @@ function addPergunta(b){
     const formu = document.createElement("form")
 
     if(b){
-
       numPergunta++;
 
       art.setAttribute("id", "artT")
@@ -76,6 +78,7 @@ function addPergunta(b){
       titlePergunta.type = "text"
       titlePergunta.setAttribute("id", "pergunta")
       titlePergunta.setAttribute("class", "op")
+      titlePergunta.setAttribute("class", "opE"+numPergunta)
       const txtPergunta = document.createElement("label")
       const textPergunta = document.createTextNode("Pergunta "+numPergunta)
       txtPergunta.setAttribute("for", "titlePergunta")
@@ -85,6 +88,7 @@ function addPergunta(b){
       opA.type = "text"
       opA.setAttribute("id", "opA")
       opA.setAttribute("class", "op")
+      opA.setAttribute("class", "opE"+numPergunta)
       const txtopA = document.createElement("label")
       const textopA = document.createTextNode("Opcão A")
       txtopA.setAttribute("for", "opA")
@@ -93,6 +97,7 @@ function addPergunta(b){
       opB.type = "text"
       opB.setAttribute("id", "opB")
       opB.setAttribute("class", "op")
+      opB.setAttribute("class", "opE"+numPergunta)
       const txtopB = document.createElement("label")
       const textopB = document.createTextNode("Opcão B")
       txtopB.setAttribute("for", "opB")
@@ -101,6 +106,7 @@ function addPergunta(b){
       opC.type = "text"
       opC.setAttribute("id", "opC")
       opC.setAttribute("class", "op")
+      opC.setAttribute("class", "opE"+numPergunta)
       const txtopC = document.createElement("label")
       const textopC = document.createTextNode("Opcão C")
       txtopC.setAttribute("for", "opC")
@@ -109,6 +115,7 @@ function addPergunta(b){
       opD.type = "text"
       opD.setAttribute("id", "opD")
       opD.setAttribute("class", "op")
+      opD.setAttribute("class", "opE"+numPergunta)
       const txtopD = document.createElement("label")
       const textopD = document.createTextNode("Opcão D")
       txtopD.setAttribute("for", "opD")
@@ -117,6 +124,7 @@ function addPergunta(b){
       opE.type = "text"
       opE.setAttribute("id", "opE")
       opE.setAttribute("class", "op")
+      opE.setAttribute("class", "opE"+numPergunta)
       const txtopE = document.createElement("label")
       const textopE = document.createTextNode("Opcão E")
       txtopE.setAttribute("for", "opE")
@@ -125,6 +133,7 @@ function addPergunta(b){
       opCerta.type = "text"
       opCerta.setAttribute("id", "opCerta")
       opCerta.setAttribute("class", "op")
+      opCerta.setAttribute("class", "opE"+numPergunta)
       const txtopCerta = document.createElement("label")
       const textopCerta = document.createTextNode("Resposta Correta")
       txtopCerta.setAttribute("for", "opCerta")
@@ -166,6 +175,8 @@ function addPergunta(b){
       sec.appendChild(art)
 
     }else{
+      // Altera Valor da pergunta
+      inputSalvar.setAttribute('value', 'Salvar Teste')
 
       numPerguntaNova++;
       numPergunta++;
@@ -260,37 +271,69 @@ function addPergunta(b){
 function salvarPergunta(){
     let listPerguntas = [] // lista de perguntas
     let respostaExistente=false;
+    let update=false
+    
     //função para pegar valor da html e adicionar na lista, formato json
-    for(let i=1; i<=numPerguntaNova; i++) { //para cada pergunta criada faça
-        var perguntas = document.querySelectorAll(".op"+i)
-        let test = {}
-        respostaExistente=false;
-
-        for(let j=0; j<6;j++) {
-            if(perguntas[j].value=="") {
-                //
-            } else {
-                if(perguntas[j].value == perguntas[6].value) {
-                    // respostaExistente==true;
-                    test =  { // salvar os valores nos campos coerentes
-                        "tituloDaPergunta": perguntas[0].value,
-                        "opcaoA": perguntas[1].value,
-                        "opcaoB": perguntas[2].value,
-                        "opcaoC": perguntas[3].value,
-                        "opcaoD": perguntas[4].value,
-                        "opcaoE": perguntas[5].value,
-                        "resposta": perguntas[6].value
+    if(inputSalvar.getAttribute('value') == 'Salvar Teste') {
+        for(let i=1; i<=numPerguntaNova; i++) { //para cada pergunta criada faça
+            var perguntas = document.querySelectorAll(".op"+i)
+            let test = {}
+            respostaExistente=false;
+            
+            for(let j=0; j<=6;j++) {
+                if(perguntas[j].value=="") {
+                    //
+                } else {
+                    if(perguntas[j].value == perguntas[6].value) {
+                        // respostaExistente==true;
+                        test =  { // salvar os valores nos campos coerentes
+                            "tituloDaPergunta": perguntas[0].value,
+                            "opcaoA": perguntas[1].value,
+                            "opcaoB": perguntas[2].value,
+                            "opcaoC": perguntas[3].value,
+                            "opcaoD": perguntas[4].value,
+                            "opcaoE": perguntas[5].value,
+                            "resposta": perguntas[6].value
+                        }
+                        respostaExistente=true
+                        
                     }
-                    respostaExistente=true
-                    
                 }
             }
+    
+            if(respostaExistente==true) {
+                listPerguntas.push(test) // adiciona na lista
+            }
         }
-
-        if(respostaExistente==true) {
+    } else {
+        for(let i=1; i<=numPergunta; i++) { //para cada pergunta criada faça
+            var perguntas = document.querySelectorAll(".opE"+i)
+            let test = {}
+            respostaExistente=true;
+    
+            for(let j=0; j<6;j++) {
+                if(perguntas[j].value=="") {
+                    //
+                } else {
+                    if(perguntas[j].value == perguntas[6].value) {
+                        test =  { // salvar os valores nos campos coerentes
+                            "tituloDaPergunta": perguntas[0].value,
+                            "opcaoA": perguntas[1].value,
+                            "opcaoB": perguntas[2].value,
+                            "opcaoC": perguntas[3].value,
+                            "opcaoD": perguntas[4].value,
+                            "opcaoE": perguntas[5].value,
+                            "resposta": perguntas[6].value
+                        }
+                        respostaExistente=true
+                    }
+                }
+            }
+            
+            update =true
+            respostaExistente==true 
             listPerguntas.push(test) // adiciona na lista
         }
-
     }
 
     if(respostaExistente) {
@@ -300,16 +343,16 @@ function salvarPergunta(){
     
             // Parse the JSON data into a JavaScript object
             data = JSON.parse(JSON.stringify(data));
-            // console.log(teste)
             for(let teste of data) {
                 if(teste.title == nomeTeste) {
                     if(teste.perguntas == "") {
                         teste.perguntas = listPerguntas
                     } else {
-                        for(let i=0; i<teste.perguntas.length; i++) {
-                            listPerguntas.push(teste.perguntas[i])
+                        if(update==false) {
+                            for(let i=0; i<teste.perguntas.length; i++) {
+                                listPerguntas.push(teste.perguntas[i])
+                            }
                         }
-    
                         teste.perguntas = listPerguntas
                     }
                 }
@@ -332,10 +375,11 @@ function salvarPergunta(){
         .catch(error => console.error('Error:', error));
     
         
-        window.location='http://localhost:8080/login/cadastrodetestes'
+        // window.location='http://localhost:8080/login/cadastrodetestes'
     } else {
         alert("Dados Incorretos")
     }
 }   
+
 
 getPerguntas()

@@ -5,13 +5,11 @@
         "3": "pergunta nova salva como primeira",
         "4": "limpar radio button",
         "6": "tirar console.logs()",
-        "7": "tela finalização do teste",
-        "8": "tela lista de resultado",
+        "7": "tela finalização do teste                                               --",
         "9": "revisar codigo e comentarios",
         "10": "editar nome do teste",
         "11": "quando atualiza a pagina o botao de add pergunta vira editar teste",
         "13": "botão para teste",
-        "14": "botão excluir teste",
-        "15": "nome de teste com vírgula buga ao mostrar no cadastro de perguntas"
+        "14": "botão excluir teste"
     }
 ]
