@@ -311,12 +311,11 @@ function salvarPergunta(){
         let test = {}
         respostaExistente=false;
         
-        for(let j=0; j<=6;j++) {
+        for(let j=0; j<6;j++) {
             if(perguntas[j].value=="") {
                 //
             } else {
                 if(perguntas[j].value == perguntas[6].value) {
-                    // respostaExistente==true;
                     test =  { // salvar os valores nos campos coerentes
                         "tituloDaPergunta": perguntas[0].value,
                         "opcaoA": perguntas[1].value,
@@ -332,7 +331,7 @@ function salvarPergunta(){
             }
         }
 
-        if(respostaExistente==true) {
+        if(respostaExistente) {
             listPerguntas.push(test) // adiciona na lista
         }
     }
