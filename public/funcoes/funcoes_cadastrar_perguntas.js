@@ -1,7 +1,17 @@
 // pegar titulo do teste passado na url
 const url = window.location.pathname
 const parts = url.split('/')
-const nomeTeste = parts[3]
+let nomeTeste = parts[3]
+
+// URL não aceita espaço, troca espaço por %20, if para trocar por espaço
+if(nomeTeste.includes('%20')) {
+    let partes = nomeTeste.split('%20')
+
+    nomeTeste=""
+    for(let par of partes) {
+        nomeTeste += par + " "
+    }
+}
 
 // Pegar elemento h1 para adiciconar o nome do teste no html
 const nome = document.createTextNode(nomeTeste)
