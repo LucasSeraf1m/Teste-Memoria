@@ -99,3 +99,8 @@ p{
     margin: 0;
     padding: 10px;
 }
+
+.textoMargin{
+    width: 200px;
+    margin: auto;
+}
