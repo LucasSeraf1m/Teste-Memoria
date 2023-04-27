@@ -175,13 +175,6 @@
         "resposta": "4"
       },
       {
-        "tituloDaPergunta": "5",
-        "opcaoA": "5",
-        "opcaoB": "5",
-        "opcaoC": "5",
-        "opcaoD": "5",
-        "opcaoE": "5",
-        "resposta": "5",
         "tituloDaPergunta": "234",
         "opcaoA": "2342",
         "opcaoB": "22",
@@ -245,7 +238,17 @@
   },
   {
     "title": "ciencias",
-    "perguntas": ""
+    "perguntas": [
+      {
+        "tituloDaPergunta": "5",
+        "opcaoA": "5",
+        "opcaoB": "eydh",
+        "opcaoC": "ye",
+        "opcaoD": "dhgd",
+        "opcaoE": "245",
+        "resposta": "5"
+      }
+    ]
   },
   {
     "title": "historia",

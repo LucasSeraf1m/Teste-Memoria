@@ -72,8 +72,6 @@ function randomizarPerguntas(array) {
     return array
 }
 
-
-
 function setPergunta() {
 
     if(indice >=0) {
@@ -135,6 +133,7 @@ function setPergunta() {
         console.log("dde")
         const btnProx = document.getElementById('prox')
         btnProx.setAttribute('value', "Encerrar teste")
+        btnProx.setAttribute('onclick', "testFinalizado()")
     }
 }
 
@@ -195,4 +194,24 @@ function salvarResult() {
         window.location = 'http://localhost:8080/listadetestes';
     }).then()
     .catch(error => console.error('Error:', error));
+}
+
+function testFinalizado(){
+    var sec = document.getElementById("sec")
+    var formu = document.getElementById("formu")
+    var botaos = document.getElementById("botao") 
+    sec.removeChild(formu)
+    sec.removeChild(botaos)
+
+    var txtH2 = document.createElement("h2")
+    var txt = document.createTextNode("Acertos: "+acertos)
+    
+    var txtQ = document.createElement("h2")
+    var txt2 = document.createTextNode("Perguntas Respondidas: "+respondidas)
+
+    txtQ.appendChild(txt2)
+    sec.appendChild(txtQ)
+
+    txtH2.appendChild(txt)
+    sec.appendChild(txtH2)
 }
