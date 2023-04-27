@@ -363,7 +363,6 @@ function salvarPergunta(){
         }).then()
         .catch(error => console.error('Error:', error));
     
-        
         window.location='http://localhost:8080/login/cadastrodetestes'
     } else {
         alert("Dados Incorretos")
