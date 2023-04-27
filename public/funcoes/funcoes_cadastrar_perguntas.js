@@ -179,7 +179,6 @@ function addPergunta(b){
       inputSalvar.setAttribute('value', 'Salvar Teste')
 
       numPerguntaNova++;
-      numPergunta++;
 
       art.setAttribute("id", "art"+numPerguntaNova)
       const titlePergunta = document.createElement("input")
@@ -187,7 +186,7 @@ function addPergunta(b){
       titlePergunta.setAttribute("id", "pergunta"+numPerguntaNova)
       titlePergunta.setAttribute("class", "op"+numPerguntaNova)
       const txtPergunta = document.createElement("label")
-      const textPergunta = document.createTextNode("Pergunta "+numPergunta)
+      const textPergunta = document.createTextNode("Pergunta "+(numPergunta+numPerguntaNova))
       txtPergunta.setAttribute("for", "titlePergunta")
       const opA = document.createElement("input")
       txtPergunta.setAttribute("class", "labelPergunta") //lucas
@@ -271,67 +270,62 @@ function addPergunta(b){
 function salvarPergunta(){
     let listPerguntas = [] // lista de perguntas
     let respostaExistente=false;
-    let update=false
-    
-    //função para pegar valor da html e adicionar na lista, formato json
-    if(inputSalvar.getAttribute('value') == 'Salvar Teste') {
-        for(let i=1; i<=numPerguntaNova; i++) { //para cada pergunta criada faça
-            var perguntas = document.querySelectorAll(".op"+i)
-            let test = {}
-            respostaExistente=false;
-            
-            for(let j=0; j<=6;j++) {
-                if(perguntas[j].value=="") {
-                    //
-                } else {
-                    if(perguntas[j].value == perguntas[6].value) {
-                        // respostaExistente==true;
-                        test =  { // salvar os valores nos campos coerentes
-                            "tituloDaPergunta": perguntas[0].value,
-                            "opcaoA": perguntas[1].value,
-                            "opcaoB": perguntas[2].value,
-                            "opcaoC": perguntas[3].value,
-                            "opcaoD": perguntas[4].value,
-                            "opcaoE": perguntas[5].value,
-                            "resposta": perguntas[6].value
-                        }
-                        respostaExistente=true
-                        
+
+    // função para pegar valor da html e adicionar na lista, formato json
+    for(let i=1; i<=numPergunta; i++) { //para cada pergunta criada faça
+        var perguntas = document.querySelectorAll(".opE"+i)
+        let test = {}
+        respostaExistente=false;
+        
+        for(let j=0; j<6;j++) {
+            if(perguntas[j].value=="") {
+                //
+            } else {
+                if(perguntas[j].value == perguntas[6].value) {
+                    test =  { // salvar os valores nos campos coerentes
+                        "tituloDaPergunta": perguntas[0].value,
+                        "opcaoA": perguntas[1].value,
+                        "opcaoB": perguntas[2].value,
+                        "opcaoC": perguntas[3].value,
+                        "opcaoD": perguntas[4].value,
+                        "opcaoE": perguntas[5].value,
+                        "resposta": perguntas[6].value
                     }
+                    respostaExistente=true
                 }
-            }
-    
-            if(respostaExistente==true) {
-                listPerguntas.push(test) // adiciona na lista
             }
         }
-    } else {
-        for(let i=1; i<=numPergunta; i++) { //para cada pergunta criada faça
-            var perguntas = document.querySelectorAll(".opE"+i)
-            let test = {}
-            respostaExistente=true;
-    
-            for(let j=0; j<6;j++) {
-                if(perguntas[j].value=="") {
-                    //
-                } else {
-                    if(perguntas[j].value == perguntas[6].value) {
-                        test =  { // salvar os valores nos campos coerentes
-                            "tituloDaPergunta": perguntas[0].value,
-                            "opcaoA": perguntas[1].value,
-                            "opcaoB": perguntas[2].value,
-                            "opcaoC": perguntas[3].value,
-                            "opcaoD": perguntas[4].value,
-                            "opcaoE": perguntas[5].value,
-                            "resposta": perguntas[6].value
-                        }
-                        respostaExistente=true
+        
+        listPerguntas.push(test)
+    }
+
+    for(let i=1; i<=numPerguntaNova; i++) { //para cada pergunta criada faça
+        var perguntas = document.querySelectorAll(".op"+i)
+        let test = {}
+        respostaExistente=false;
+        
+        for(let j=0; j<=6;j++) {
+            if(perguntas[j].value=="") {
+                //
+            } else {
+                if(perguntas[j].value == perguntas[6].value) {
+                    // respostaExistente==true;
+                    test =  { // salvar os valores nos campos coerentes
+                        "tituloDaPergunta": perguntas[0].value,
+                        "opcaoA": perguntas[1].value,
+                        "opcaoB": perguntas[2].value,
+                        "opcaoC": perguntas[3].value,
+                        "opcaoD": perguntas[4].value,
+                        "opcaoE": perguntas[5].value,
+                        "resposta": perguntas[6].value
                     }
+                    respostaExistente=true
+                    
                 }
             }
-            
-            update =true
-            respostaExistente==true 
+        }
+
+        if(respostaExistente==true) {
             listPerguntas.push(test) // adiciona na lista
         }
     }
@@ -348,11 +342,6 @@ function salvarPergunta(){
                     if(teste.perguntas == "") {
                         teste.perguntas = listPerguntas
                     } else {
-                        if(update==false) {
-                            for(let i=0; i<teste.perguntas.length; i++) {
-                                listPerguntas.push(teste.perguntas[i])
-                            }
-                        }
                         teste.perguntas = listPerguntas
                     }
                 }
