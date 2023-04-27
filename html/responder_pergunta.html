@@ -19,7 +19,7 @@
         <div class="containerConteudo">
             <h2 id="nome">Teste: </h2>
             <section id="sec">
-                <form action="">
+                <form action="" id="formu">
                     <h2 id="pergunta"></h2>
                     <!-- <input type="text" id="pergunta" value="Pergunta:" disabled> -->
                     <p class="instrucao">Selecione a resposta correta: </p>
@@ -34,9 +34,9 @@
                     <input type="radio" id="opcaoE" name="opcao" value="">
                     <label for="opcaoE">e)</label>
                 </form>
-                <div class="containerBotoes">
+                <div class="containerBotoes" id="botao">
                     <input id="prox" class="btn" type="button" value="Próxima Pergunta" onclick="getReposta()">
-                    <input class="btn" type="button" value="Parar Teste" onclick="">
+                    <input id="cancelar" class="btn" type="button" value="Parar Teste" onclick="testFinalizado()">
                 </div>
             </section>
             <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/listadetestes'">Cancelar</button>
