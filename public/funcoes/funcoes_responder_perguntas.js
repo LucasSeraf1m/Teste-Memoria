@@ -205,13 +205,23 @@ function testFinalizado(){
 
     var txtH2 = document.createElement("h2")
     var txt = document.createTextNode("Acertos: "+acertos)
-    
+
     var txtQ = document.createElement("h2")
     var txt2 = document.createTextNode("Perguntas Respondidas: "+respondidas)
+
+    var botao = document.createElement("button")
+    botao.setAttribute("onclick", "window.location='http://localhost:8080/resultados'")
+    var txtB = document.createTextNode("Lista de Resultados")
+    botao.appendChild(txtB)
+    botao.setAttribute("class", "btn")
+    botao.setAttribute("id", "botaoTest")
+
 
     txtQ.appendChild(txt2)
     sec.appendChild(txtQ)
 
     txtH2.appendChild(txt)
     sec.appendChild(txtH2)
+
+    sec.appendChild(botao)
 }
