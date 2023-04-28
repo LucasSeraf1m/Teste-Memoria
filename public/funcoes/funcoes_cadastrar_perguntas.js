@@ -7,7 +7,6 @@ let nomeTeste = nomeTesteVet
 // URL não aceita espaço, troca espaço por %20, if para trocar por espaço
 if(nomeTesteVet.includes('%20')) {
     let partes = nomeTesteVet.split('%20')
-    console.log(partes);
 
     nomeTeste=""
     for(let i=0; i<partes.length; i++) {
@@ -274,7 +273,7 @@ function addPergunta(b){
     }
 }
 
-function salvarPergunta(){
+async function salvarPergunta(){
     let listPerguntas = [] // lista de perguntas
     let respostaExistente=false;
 
@@ -337,7 +336,7 @@ function salvarPergunta(){
     }
 
     if(respostaExistente) {
-        fetch('http://localhost:8081/')
+         fetch('http://localhost:8081/')
         .then(response => response.json())
         .then(data => {
     
