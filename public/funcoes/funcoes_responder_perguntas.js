@@ -129,8 +129,8 @@ function setPergunta() {
             j++
         }
         titulo.innerText = pergunta[indice].tituloDaPergunta
-    } else {
-        console.log("dde")
+    } 
+    if(indice == 0){
         const btnProx = document.getElementById('prox')
         btnProx.setAttribute('value', "Encerrar teste")
         btnProx.setAttribute('onclick', "testFinalizado()")
@@ -138,8 +138,6 @@ function setPergunta() {
 }
 
 function getReposta() {
-
-
     if(indice >= 0) {
         var resposta = document.querySelector('input[name="opcao"]:checked').value
         console.log(indice);
@@ -155,8 +153,6 @@ function getReposta() {
         indice--
         setPergunta()
         respondidas++
-    } else {
-        salvarResult()
     }
     var button = document.querySelector('input[name="opcao"]:checked');
     button.checked = false;
@@ -191,12 +187,16 @@ function salvarResult() {
         .then(response => console.log('Data inserted successfully!'))
         .catch(error => console.error('Error:', error));
 
-        window.location = 'http://localhost:8080/listadetestes';
+
     }).then()
     .catch(error => console.error('Error:', error));
 }
 
 function testFinalizado(){
+
+    getReposta()
+    salvarResult()
+
     var sec = document.getElementById("sec")
     var formu = document.getElementById("formu")
     var botaos = document.getElementById("botao") 
