@@ -1,7 +1,47 @@
 [
   {
+<<<<<<< HEAD
     "teste": "tttt",
     "qtd_perguntas": 7,
+=======
+    "teste": "fgsht",
+    "qtd_perguntas": 0,
+    "qtd_acertos": 0
+  },
+  {
+    "teste": "fgsht",
+    "qtd_perguntas": 0,
+    "qtd_acertos": 0
+  },
+  {
+    "teste": "fgsht",
+    "qtd_perguntas": 0,
+    "qtd_acertos": 0
+  },
+  {
+    "teste": "politica",
+    "qtd_perguntas": 0,
+    "qtd_acertos": 0
+  },
+  {
+    "teste": "tttt",
+    "qtd_perguntas": 6,
+    "qtd_acertos": 4
+  },
+  {
+    "teste": "tttt",
+    "qtd_perguntas": 6,
+    "qtd_acertos": 3
+  },
+  {
+    "teste": "tttt",
+    "qtd_perguntas": 6,
+    "qtd_acertos": 5
+  },
+  {
+    "teste": "tttt",
+    "qtd_perguntas": 6,
+>>>>>>> 33a88f9892547d60e4f5182314207809d44dc2c8
     "qtd_acertos": 3
   }
 ]

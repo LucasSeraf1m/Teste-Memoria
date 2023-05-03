@@ -73,8 +73,7 @@ function randomizarPerguntas(array) {
 }
 
 function setPergunta() {
-
-    if(indice >=0) {
+    if(indice >= 0) {
         const titulo = document.getElementById("pergunta");
         const inputs = document.querySelectorAll('input');
         const labels = document.querySelectorAll('label');
@@ -138,6 +137,8 @@ function setPergunta() {
 }
 
 function getReposta() {
+
+
     if(indice >= 0) {
         var resposta = document.querySelector('input[name="opcao"]:checked').value
         console.log(indice);
@@ -153,6 +154,8 @@ function getReposta() {
         indice--
         setPergunta()
         respondidas++
+    } else {
+        salvarResult()
     }
     var button = document.querySelector('input[name="opcao"]:checked');
     button.checked = false;
