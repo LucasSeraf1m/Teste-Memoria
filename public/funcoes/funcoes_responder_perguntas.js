@@ -73,8 +73,7 @@ function randomizarPerguntas(array) {
 }
 
 function setPergunta() {
-
-    if(indice >=0) {
+    if(indice >= 0) {
         const titulo = document.getElementById("pergunta");
         const inputs = document.querySelectorAll('input');
         const labels = document.querySelectorAll('label');
@@ -129,8 +128,8 @@ function setPergunta() {
             j++
         }
         titulo.innerText = pergunta[indice].tituloDaPergunta
-    } else {
-        console.log("dde")
+    } 
+    if(indice == 0) {
         const btnProx = document.getElementById('prox')
         btnProx.setAttribute('value', "Encerrar teste")
         btnProx.setAttribute('onclick', "testFinalizado()")
@@ -138,28 +137,30 @@ function setPergunta() {
 }
 
 function getReposta() {
-
-
-    if(indice >= 0) {
-        var resposta = document.querySelector('input[name="opcao"]:checked').value
-        console.log(indice);
-        console.log(pergunta[indice].resposta);
-        console.log(resposta);
-        if(resposta == pergunta[indice].resposta) {
-            console.log("certou");
-            acertos++
-        } else {
-            console.log("Errou");
+        if(indice >= 0) {
+            console.log(indice);
+            var resposta = document.querySelector('input[name="opcao"]:checked').value
+            console.log(indice);
+            console.log(pergunta[indice].resposta);
+            console.log(resposta);
+            if(resposta == pergunta[indice].resposta) {
+                console.log("certou");
+                acertos++
+            } else {
+                console.log("Errou");
+            }
+            indice--
+            setPergunta()
+            respondidas++
         }
-
-        indice--
-        setPergunta()
-        respondidas++
-    } else {
-        salvarResult()
-    }
-    var button = document.querySelector('input[name="opcao"]:checked');
-    button.checked = false;
+        if(indice == 0){
+            indice--
+        }
+        if(indice < 0) {
+            salvarResult()
+        }
+        var button = document.querySelector('input[name="opcao"]:checked');
+        button.checked = false;
 }
 
 function salvarResult() {
@@ -191,7 +192,7 @@ function salvarResult() {
         .then(response => console.log('Data inserted successfully!'))
         .catch(error => console.error('Error:', error));
 
-        window.location = 'http://localhost:8080/listadetestes';
+        
     }).then()
     .catch(error => console.error('Error:', error));
 }
