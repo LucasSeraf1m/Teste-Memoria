@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router(); // cria o router
 
+const { protected } = require("./protegido");
+
 // GET pagina home 
 router.get("/", function (req, res) {
     res.sendFile('./html/home.html', { root: '.' });
@@ -17,9 +19,9 @@ router.get("/login", function (req, res) {
 });
 
 // GET cadastro de teste
-router.get("/login/cadastrodetestes", function (req, res) {
-    res.sendFile('./html/cadastrar_teste.html', { root: '.' });
-});
+router.get("/login/cadastrodetestes", protected, async function (req, res) {
+    res.sendFile('./html/cadastrar_teste.html', {  root: '.' });
+}); 
 
 // GET cadastro de perguntas
 router.get(/.*cadastrodeperguntas$/, function (req, res) {
